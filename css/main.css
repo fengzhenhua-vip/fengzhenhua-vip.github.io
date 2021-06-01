@@ -1040,6 +1040,11 @@ pre code {
 .post-body .note.danger h6 {
   color: #d9534f;
 }
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 500px;
+  width: 100%;
+}
 .mermaid {
   margin-bottom: 20px;
   text-align: center;
@@ -2625,7 +2630,7 @@ mjx-container[display="true"] + br {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #a7fff1;
+  background: #ff606f;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
