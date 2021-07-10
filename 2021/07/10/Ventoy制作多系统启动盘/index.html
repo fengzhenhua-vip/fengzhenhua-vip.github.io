@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;fengzhenhua-vip.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
-<meta name="description" content="简介 目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows ,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具Ventoy。 Ventoy使用方法  在Ventoy">
+<meta name="description" content="为何选择Ventoy ? 目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具Ventoy。更多介绍请移步Vent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ventoy制作多系统启动盘">
 <meta property="og:url" content="http://fengzhenhua-vip.github.io/2021/07/10/Ventoy%E5%88%B6%E4%BD%9C%E5%A4%9A%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E7%9B%98/index.html">
 <meta property="og:site_name" content="格物万象，究理天人">
-<meta property="og:description" content="简介 目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows ,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具Ventoy。 Ventoy使用方法  在Ventoy">
+<meta property="og:description" content="为何选择Ventoy ? 目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具Ventoy。更多介绍请移步Vent">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-10T15:17:57.000Z">
-<meta property="article:modified_time" content="2021-07-10T15:34:12.679Z">
+<meta property="article:modified_time" content="2021-07-10T15:56:17.693Z">
 <meta property="article:author" content="冯振华">
 <meta name="twitter:card" content="summary">
 
@@ -108,7 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ventoy%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">Ventoy使用方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BD%95%E9%80%89%E6%8B%A9ventoy"><span class="nav-number">1.</span> <span class="nav-text">为何选择Ventoy ?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ventoy%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">Ventoy使用方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-10 23:17:57 / Modified: 23:34:12" itemprop="dateCreated datePublished" datetime="2021-07-10T23:17:57+08:00">2021-07-10</time>
+      <time title="Created: 2021-07-10 23:17:57 / Modified: 23:56:17" itemprop="dateCreated datePublished" datetime="2021-07-10T23:17:57+08:00">2021-07-10</time>
     </span>
 
   
@@ -199,11 +199,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="简介">简介</h1>
-<p>目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows ,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具<code>Ventoy</code>。</p>
+        <h1 id="为何选择ventoy">为何选择Ventoy ?</h1>
+<p>目前市面上有很多制作系统启动盘的工具，但是在工作中我们发现多数的系统启动盘制作工具所生成的启动盘会向新安装的系统中添加多余的软件，这点是我们非常不希望的。同时，一般而言这些系统启动盘制作工具只能支持windows,而对于Linux系统，则使用dd命令来记录启动盘。然而今天我们介绍一款能够同时支持主流Linux发行版和Windows的工具<code>Ventoy</code>。更多介绍请移步<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">Ventoy官网</a></p>
+<span id="more"></span>
 <h1 id="ventoy使用方法">Ventoy使用方法</h1>
 <ol type="1">
-<li>在Ventoy官网下载此软件。Linux系统使用tar.gz格式。下载地址：</li>
+<li><p>在Ventoy官网下载此软件。Linux系统使用tar.gz格式。下载地址： <a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/download.html">https://www.ventoy.net/cn/download.html</a></p></li>
+<li><p>下载后，解压，切换到该目录下，在终端中使用管理员权限启动Ventoy ,即</p></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ./VentoyWeb.sh</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li><p>根据终端提示，在浏览器中打开Ventoy的前端界面。只要插上U盘，Ventoy能自动识别。识别后，点击安装按钮，即可把Ventoy安装到U盘上。注意，安装前会有警告：<code>最好使用空白、格式化的U盘，以免安装失败。</code>等几十秒后，Ventoy就安装好了。</p></li>
+<li><p>把操作系统的ISO镜像复制到U盘的数据分区里，这里的镜像支持Linux、Windows、WinPE。复制完毕，使用这个U盘启动电脑，则可以选择对应镜像就可以了。我本人经过测试，安装Windows10和 manjor Linux 均成功。</p></li>
+<li><p>Ventoy使用说明官方版：<a target="_blank" rel="noopener" href="https://www.ventoy.net/cn/doc_start.html">Ventoy使用说明</a></p></li>
 </ol>
 
     </div>
