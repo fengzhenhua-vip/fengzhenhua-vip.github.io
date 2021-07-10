@@ -20,27 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;fengzhenhua-vip.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Muse&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;Searching...&quot;,&quot;empty&quot;:&quot;We didn&#39;t find any results for the search: ${query}&quot;,&quot;hits_time&quot;:&quot;${hits} results found in ${time} ms&quot;,&quot;hits&quot;:&quot;${hits} results found&quot;}}</script>
-<meta name="description" content="2018年11月30日00:00网易博客关闭了，我写了若干年的博文就这样告别了网络。在学习Linux的过程中，我发现可以借助一些网络代码托管平台实现自己部署博客，最开始的尝试就从这里开始吧。">
+<meta name="description" content="为什么需要微PE工具箱 ？ 在之前我们介绍了支持多系统启动的启动盘制作工具Ventoy ,今天我们再来介绍一款启动盘制作工具：微PE工具箱 前面我们介绍的Ventoy,它的优势是纯净无多余软件安装，同时兼容Windows和Linux等多种系统的安装。但是对于维护一些常见的Windows电脑时，Ventoy没有现成的维护工具使用，当然自己准备WinPE系统盘也是可以，但是对于只使用windows的用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客声明">
-<meta property="og:url" content="http://fengzhenhua-vip.github.io/2021/05/18/%E5%8D%9A%E5%AE%A2%E5%A3%B0%E6%98%8E/index.html">
+<meta property="og:title" content="微PE工具箱">
+<meta property="og:url" content="http://fengzhenhua-vip.github.io/2021/07/11/%E5%BE%AEPE%E5%B7%A5%E5%85%B7%E7%AE%B1/index.html">
 <meta property="og:site_name" content="格物万象，究理天人">
-<meta property="og:description" content="2018年11月30日00:00网易博客关闭了，我写了若干年的博文就这样告别了网络。在学习Linux的过程中，我发现可以借助一些网络代码托管平台实现自己部署博客，最开始的尝试就从这里开始吧。">
+<meta property="og:description" content="为什么需要微PE工具箱 ？ 在之前我们介绍了支持多系统启动的启动盘制作工具Ventoy ,今天我们再来介绍一款启动盘制作工具：微PE工具箱 前面我们介绍的Ventoy,它的优势是纯净无多余软件安装，同时兼容Windows和Linux等多种系统的安装。但是对于维护一些常见的Windows电脑时，Ventoy没有现成的维护工具使用，当然自己准备WinPE系统盘也是可以，但是对于只使用windows的用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-18T10:27:02.000Z">
-<meta property="article:modified_time" content="2021-05-27T15:35:21.528Z">
+<meta property="article:published_time" content="2021-07-10T16:02:21.000Z">
+<meta property="article:modified_time" content="2021-07-10T16:26:02.612Z">
 <meta property="article:author" content="冯振华">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://fengzhenhua-vip.github.io/2021/05/18/%E5%8D%9A%E5%AE%A2%E5%A3%B0%E6%98%8E/">
+<link rel="canonical" href="http://fengzhenhua-vip.github.io/2021/07/11/%E5%BE%AEPE%E5%B7%A5%E5%85%B7%E7%AE%B1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh_CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;fengzhenhua-vip.github.io&#x2F;2021&#x2F;05&#x2F;18&#x2F;%E5%8D%9A%E5%AE%A2%E5%A3%B0%E6%98%8E&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;18&#x2F;博客声明&#x2F;&quot;,&quot;title&quot;:&quot;博客声明&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh_CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;fengzhenhua-vip.github.io&#x2F;2021&#x2F;07&#x2F;11&#x2F;%E5%BE%AEPE%E5%B7%A5%E5%85%B7%E7%AE%B1&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;11&#x2F;微PE工具箱&#x2F;&quot;,&quot;title&quot;:&quot;微PE工具箱&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>博客声明 | 格物万象，究理天人</title><script src="/js/config.js"></script>
+<title>微PE工具箱 | 格物万象，究理天人</title><script src="/js/config.js"></script>
   
 
 
@@ -95,7 +95,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -108,6 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%BE%AEpe%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="nav-number">1.</span> <span class="nav-text">为什么需要微PE工具箱 ？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AEpe%E5%B7%A5%E5%85%B7%E7%AE%B1%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">微PE工具箱下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">2.1.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%8F%8A%E5%B8%B8%E7%94%A8%E8%A3%85%E6%9C%BA%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">Windows及常用装机软件</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +161,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://fengzhenhua-vip.github.io/2021/05/18/%E5%8D%9A%E5%AE%A2%E5%A3%B0%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="http://fengzhenhua-vip.github.io/2021/07/11/%E5%BE%AEPE%E5%B7%A5%E5%85%B7%E7%AE%B1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -173,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          博客声明
+          微PE工具箱
         </h1>
 
         <div class="post-meta-container">
@@ -183,16 +184,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-05-18 18:27:02" itemprop="dateCreated datePublished" datetime="2021-05-18T18:27:02+08:00">2021-05-18</time>
+      <time title="Created: 2021-07-11 00:02:21 / Modified: 00:26:02" itemprop="dateCreated datePublished" datetime="2021-07-11T00:02:21+08:00">2021-07-11</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-27 23:35:21" itemprop="dateModified" datetime="2021-05-27T23:35:21+08:00">2021-05-27</time>
-      </span>
 
   
 </div>
@@ -204,10 +199,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>2018年11月30日00:00网易博客关闭了，我写了若干年的博文就这样告别了网络。在学习Linux的过程中，我发现可以借助一些网络代码托管平台实现自己部署博客，最开始的尝试就从这里开始吧。</p>
+        <h1 id="为什么需要微pe工具箱">为什么需要微PE工具箱 ？</h1>
+<p>在之前我们介绍了支持多系统启动的启动盘制作工具<code>Ventoy</code> ,今天我们再来介绍一款启动盘制作工具：<code>微PE工具箱</code></p>
+<p>前面我们介绍的<code>Ventoy</code>,它的优势是纯净无多余软件安装，同时兼容Windows和Linux等多种系统的安装。但是对于维护一些常见的Windows电脑时，<code>Ventoy</code>没有现成的维护工具使用，当然自己准备WinPE系统盘也是可以，但是对于只使用windows的用户，我们还有另一个纯净多余软件安装的良心工具<code>微PE工具箱</code>.更多介绍，请移步<a target="_blank" rel="noopener" href="http://www.wepe.com.cn">微PE工具箱官网</a></p>
 <span id="more"></span>
-<p>由于github 主机在国外，登录起来确实有些慢，有的地方也不能登录，所以暂时将我的博客托管到这里。另外我也注册了国内的gitee ，并且还审请到了我的名字的域名，由于目前根据gitee 官网消息：Gitee Pages 服务，由于正在进行绿色网络环境改造，服务改造结束前，无法开通新的服务，自2021年5月开始，预计会持续3到4个月。所以这段时间只在github 托管我的博客，待 Gitee 改造完毕，再将博客同时托管到这两个网站。</p>
-<p>2021年5月18日上午，我很高兴的宣布博客：格物万像，究理天人 ，正式回归网络，同时根据之前从网易下载的备份文件，逐步恢复原来写过的文章。欢迎大家关注我的博客！</p>
+<h1 id="微pe工具箱下载">微PE工具箱下载</h1>
+<h2 id="下载地址">下载地址</h2>
+<p>下载地址为：<a target="_blank" rel="noopener" href="http://www.wepe.com.cn/download.html">http://www.wepe.com.cn/download.html</a></p>
+<h2 id="windows及常用装机软件">Windows及常用装机软件</h2>
+<p>一般而言我们应当选择最新版，同时下载页也提供了Windows ISO镜像下载，我们可以方便的选择需要的版本下载即可。官网也提供了<code>常用装机软件</code>下载，大家在下载软件时往往习惯于在百度之后选择软件下载，然而一些流氓软件网站往往防不胜防，这造成误下载或下载被修改过的软件，造成电脑中毒或被自动安装广告软件等等。所以首先推荐的是官网下载软件安装，如果图方便我们直接在微PE官网给出的下载链接下载也可以。</p>
 
     </div>
 
@@ -239,14 +239,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/05/18/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="使用Hexo搭建博客">
-                  <i class="fa fa-chevron-left"></i> 使用Hexo搭建博客
+                <a href="/2021/07/10/Ventoy%E5%88%B6%E4%BD%9C%E5%A4%9A%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E7%9B%98/" rel="prev" title="Ventoy制作多系统启动盘">
+                  <i class="fa fa-chevron-left"></i> Ventoy制作多系统启动盘
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/19/%E4%B8%8D%E5%90%8C%E7%94%B5%E8%84%91%E4%B8%8A%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E5%8D%9A%E5%AE%A2/" rel="next" title="不同电脑上使用Hexo写博客">
-                  不同电脑上使用Hexo写博客 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
