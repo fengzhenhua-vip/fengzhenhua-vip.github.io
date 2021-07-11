@@ -28,7 +28,7 @@
 <meta property="og:description" content="关于配置文件的改造 配置整体布局  将五一之前和十一之前的标准时间和校准时间合并到一个Sheet中,以不同区域表示，新系统将根据考勤时间自动选取对应区域的校准时间和校准时间。 读入停止考勤表 读入请假表 ，请假表含自动探测的宏,宏不需调整。 读入调课表 ， 调课表含自动探测的宏,宏不需调整。 读入自习表 ， 自习表含自动探测的宏,宏不需调整。 读入二次校准表 ，二次校准表也含自动探测宏,宏不需调整">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-11T11:06:56.000Z">
-<meta property="article:modified_time" content="2021-07-11T15:03:01.151Z">
+<meta property="article:modified_time" content="2021-07-11T16:55:23.668Z">
 <meta property="article:author" content="冯振华">
 <meta name="twitter:card" content="summary">
 
@@ -108,7 +108,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%94%B9%E9%80%A0"><span class="nav-number">1.</span> <span class="nav-text">关于配置文件的改造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80"><span class="nav-number">1.1.</span> <span class="nav-text">配置整体布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%A1%E5%87%86%E8%80%83%E5%8B%A4%E6%97%B6%E9%97%B4%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">校准考勤时间表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%A7%84%E8%8C%83%E7%9A%84%E6%BA%90%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">获取规范的源表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E5%8B%A4%E6%A0%B8%E5%BF%83%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">考勤核心程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E5%8B%A4%E4%BA%BA%E5%91%98id"><span class="nav-number">4.</span> <span class="nav-text">考勤人员ID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E7%8F%ADid"><span class="nav-number">5.</span> <span class="nav-text">排班ID</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E6%94%B9%E9%80%A0"><span class="nav-number">1.</span> <span class="nav-text">关于配置文件的改造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80"><span class="nav-number">1.1.</span> <span class="nav-text">配置整体布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E8%80%83%E5%8B%A4%E6%97%B6%E9%97%B4%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">标准考勤时间表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E4%B9%A0%E6%A0%A1%E5%87%86%E6%97%B6%E9%97%B4%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">自习校准时间表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E4%B9%A0%E8%A1%A8%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">自习表的格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E4%B9%A0%E8%A1%A8%E8%BD%AC%E6%A0%A1%E5%87%86%E8%A1%A8"><span class="nav-number">1.5.</span> <span class="nav-text">自习表转校准表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">转换方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E5%87%86%E8%A1%A8%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.5.2.</span> <span class="nav-text">校准表的格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%A7%84%E8%8C%83%E7%9A%84%E6%BA%90%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">获取规范的源表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E5%8B%A4%E6%A0%B8%E5%BF%83%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">考勤核心程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E8%80%83%E5%8B%A4%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">整体考勤处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E5%8B%A4%E6%A0%B8%E5%BF%83%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">3.2.</span> <span class="nav-text">考勤核心的构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%80%9F%E5%88%86%E6%9E%90"><span class="nav-number">3.3.</span> <span class="nav-text">提速分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E5%8B%A4%E4%BA%BA%E5%91%98id"><span class="nav-number">4.</span> <span class="nav-text">考勤人员ID</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E7%8F%ADid"><span class="nav-number">5.</span> <span class="nav-text">排班ID</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -184,10 +184,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-07-11 19:06:56 / Modified: 23:03:01" itemprop="dateCreated datePublished" datetime="2021-07-11T19:06:56+08:00">2021-07-11</time>
+      <time title="Created: 2021-07-11 19:06:56" itemprop="dateCreated datePublished" datetime="2021-07-11T19:06:56+08:00">2021-07-11</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-12 00:55:23" itemprop="dateModified" datetime="2021-07-12T00:55:23+08:00">2021-07-12</time>
+      </span>
 
   
 </div>
@@ -211,8 +217,9 @@
 <li>在调入<code>调课表</code>、<code>二次校准表</code>和<code>自习表</code>后，立即先用<code>调课表</code>校准<code>自习表</code>.再将<code>自习表</code>转换为单项的<code>校准表</code>,然后再用<code>二次校准表</code>校准<code>校准表</code>（含修改已经存在的项和添加新项）</li>
 <li>关于标准时间表的构成,分为<code>十月一</code>和<code>五月一</code>日两个表，因为学校在这两个时间点会调整作息时间。</li>
 </ol>
-<h2 id="校准考勤时间表">校准考勤时间表</h2>
-<p>此表记录了不同职位员工上班的时间节点，按职务编码和考勤节点编码，此处<code>0000</code>为<code>教师</code>，<code>0001</code>为<code>班主任</code> ，同时<code>00</code>为<code>上午，</code>01<code>为</code>下午<code>，</code>02<code>为</code>晚上<code>,不同职务按列分区，存放于配置表中的</code>标准时间` Sheet中,具体内容如下：</p>
+<span id="more"></span>
+<h2 id="标准考勤时间表">标准考勤时间表</h2>
+<p>此表记录了不同职位员工上班的时间节点，按职务编码和考勤节点编码，此处0000为教师，0001为班主任 ，同时00为上午，01为下午 ，02为晚上,不同职务按列分区，存放于配置表中的标准时间 Sheet中,具体内容如下：</p>
 <table>
 <thead>
 <tr class="header">
@@ -267,7 +274,198 @@
 </tr>
 </tbody>
 </table>
-<span id="more"></span>
+<h2 id="自习校准时间表">自习校准时间表</h2>
+<p>自习分别以英文字母表示，对应关系如下</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">字母</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">自习</td>
+<td style="text-align: center;">第1节</td>
+<td style="text-align: center;">第5节</td>
+<td style="text-align: center;">第6节</td>
+<td style="text-align: center;">第9节</td>
+</tr>
+</tbody>
+</table>
+<p>自习标准时间表格式如下</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">自习</th>
+<th style="text-align: center;">时间</th>
+<th style="text-align: center;">节点</th>
+<th style="text-align: center;">+到</th>
+<th style="text-align: center;">-到</th>
+<th style="text-align: center;">+退</th>
+<th style="text-align: center;">-退</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">07:20:00</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">00:40:00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">11:50:00</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:50:00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">14:10:00</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:20:00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">17:50:00</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:20:00</td>
+</tr>
+</tbody>
+</table>
+<p>注意：由于自习校准时间是根据自习时间与标准考勤时间做差计算出来的，所以此表应当追加一个自动计算的宏，根据当前考勤时间首先判断是十月一之后还是五月一之后，然后读取标准时间自动填写表格。</p>
+<h2 id="自习表的格式">自习表的格式</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">姓名</th>
+<th style="text-align: center;">周一</th>
+<th style="text-align: center;">周二</th>
+<th style="text-align: center;">周三</th>
+<th style="text-align: center;">周四</th>
+<th style="text-align: center;">周五</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0001000100011</td>
+<td style="text-align: center;">张三</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0001000100021</td>
+<td style="text-align: center;">李四</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">BC</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">E</td>
+<td style="text-align: center;">D</td>
+</tr>
+</tbody>
+</table>
+<h2 id="自习表转校准表">自习表转校准表</h2>
+<h3 id="转换方法">转换方法</h3>
+<ol type="1">
+<li>定位到 <code>周一</code></li>
+<li>探测BC,如果存在之一，增加校准表中一行，写入00（上午）的时间校准</li>
+<li>探测E和BC,如果存在之一，增加校准表中一行，写入01（下午）签到时间校准</li>
+<li>探测E和D,如果存在之一，增加校准表中一行，写入01（下午）签退时间校准</li>
+<li>依次定位到周二,周三，周四，周五 ，重复步骤 3,4,5</li>
+</ol>
+<h3 id="校准表的格式">校准表的格式</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">姓名</th>
+<th style="text-align: center;">日期</th>
+<th style="text-align: center;">周次</th>
+<th style="text-align: center;">节点</th>
+<th style="text-align: center;">+到</th>
+<th style="text-align: center;">-到</th>
+<th style="text-align: center;">+退</th>
+<th style="text-align: center;">-退</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0001000100011</td>
+<td style="text-align: center;">张三</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">一</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">00:40:00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0001000100011</td>
+<td style="text-align: center;">张三</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">一</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:20:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0001000100011</td>
+<td style="text-align: center;">张三</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">二</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:50:00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0001000100011</td>
+<td style="text-align: center;">张三</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">二</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">00:20:00</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0001000100030</td>
+<td style="text-align: center;">王五</td>
+<td style="text-align: center;">2021/7/12</td>
+<td style="text-align: center;">一</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">00:40:00</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>在上述校准表中，无日期的记录是常规的自习标准，含有日期的是二次校准时追加的记录，由于日期的作用，只对此日期下起作用，此种情况是少数。在处理统计数据时，首先应当校准日期，当日期符合时执行含日期的时间校准，然后如果无符合日期的源表记录，则比对无日期自习，存在记录时，则执行对应的时间校准，如果都没有则不再校准时间，直接和标准时间比对即可。</p>
 <h1 id="获取规范的源表">获取规范的源表</h1>
 <p>不同考勤机的源数据可能设置不同，所以在考勤之前需要获取规范的源表。具体包括：</p>
 <ol type="1">
@@ -277,13 +475,22 @@
 </ol>
 <h1 id="考勤核心程序">考勤核心程序</h1>
 <p>本次升级考虑到提速的要求，所以尽可能的减少匹配的次数，因为数据一多，每匹配一次全部数据就工消耗更多的计算量，所以减少匹配次数可以有效提高效率。</p>
+<h2 id="整体考勤处理过程">整体考勤处理过程</h2>
 <ol type="1">
 <li>选中<code>源表</code>中的<code>待处理行</code>，然后匹配<code>校准表</code>中的行，获得签到签退的校准时间并校准<code>源表</code>。</li>
-<li>按考勤节点(将<code>上午</code>、<code>下午</code>、<code>晚上</code>使用<code>0,1,2...</code>等编号代替，这可以增加考核拓展性),使用 <code>Select Case</code>语句生成具体的统计数据，同时在源表中选出两列（不参与显示）记录上色信息，分别以<code>0,1,2</code>表示<code>绿色，黄色，红色</code>，用于在最后标注颜色，这样子在标注颜色阶段就又省去了一次比对和计算，极大的提高了效率。</li>
+<li>调用考勤核心Kernel，处理当前校准后的源表信息，生成统计结果。（已经包含标注颜色信息）</li>
 <li>待生成统计数据后，<code>立刻</code>根据当前的校准时间，将<code>源表</code>中的签到签退时间恢复为原始时间。</li>
 <li>将源表数据下移一行，重复上述<code>1,2,3</code>步骤，一直处理到最后。</li>
 </ol>
-<p>注意：按照当前的设计思路，系统只匹配了一次数据，这正是升级改造的进行提速的核心内容。</p>
+<h2 id="考勤核心的构成">考勤核心的构成</h2>
+<ol type="1">
+<li>分别编写每个职务的考勤标准，依次命名为kernel0,kernel1,kernel2 ...</li>
+<li>kernel0,kernel1,kernel2 等每一职务的处理，均有相同结构，使用Select Case 语句依次生成考勤节点00(上午),01(下午),02(晚上) ... 等的统计结果，并标注好上色信息，分别以0,1,2表示绿色，黄色，红色用于在最后标注颜色，这样子在标注颜色阶段就又省去了一次比对和计算，极大的提高了效率。</li>
+<li>据考勤人员ID的前四位确定职务，依次Call 对应的kernel0,kernel1,kernel2 ... , 生成一个整体的Kernel ,考勤核心模块。</li>
+<li>据上述设置，则Kernel必须存在二个参数，即：考勤人员ID , 考勤节点ID</li>
+</ol>
+<h2 id="提速分析">提速分析</h2>
+<p>按照当前的设计思路，系统只匹配了一次源表和校准表数据，这正是升级改造提速的核心内容。而旧版考勤系统分了三次匹配，分别完成不同的任务，同时上色过程又进行了一次匹配和统计结果判断，而新版系统只进行一次匹配则记录到了所有的信息，这样分析来看，新系统至少提速4倍。</p>
 <h1 id="考勤人员id">考勤人员ID</h1>
 <p>为了应对不同职务，不同部门以及重名的情况，需设置考勤人员的ID,如此可以唯一的定位人员。目前考虑设置<code>13</code>位ID,编码方案为：</p>
 <ol type="1">
@@ -291,6 +498,7 @@
 <li>中间四位是<code>学科组</code> ，编码从<code>0000</code>一直到<code>9999</code>。</li>
 <li>后四位是<code>个人</code>，编码从<code>0000</code>一直到<code>9999</code></li>
 <li>最后一位是识别码，奇数为表示男，偶数表示女。</li>
+<li>考勤人员ID的生成，在配置文件中，根据教师分组将职位一项按编码方案生成对应的ID,在智能通讯录中可以查询（解析出职位)，在通讯录中用宏实现。</li>
 <li><code>考勤人员ID</code>的录入，有二个方案：</li>
 </ol>
 <ul>
