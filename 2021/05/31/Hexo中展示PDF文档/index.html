@@ -28,7 +28,7 @@
 <meta property="og:description" content="简介 在网站中展示PDF是一个不错的主意，对于含有大量数学公式，使用LaTeX 排版的数学文档可以直接以这种方式展出，并提供下载。 从Next 主题官网中,知其支持PDF文档，查阅了很多文档，都没有把问题说清楚，故开此文，一则说明原理，二则准备发布关于manjaro的安装配置文档。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-31T06:46:46.000Z">
-<meta property="article:modified_time" content="2021-07-12T16:52:56.257Z">
+<meta property="article:modified_time" content="2021-07-12T17:03:07.694Z">
 <meta property="article:author" content="冯振华">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-13 00:52:56" itemprop="dateModified" datetime="2021-07-13T00:52:56+08:00">2021-07-13</time>
+        <time title="修改时间：2021-07-13 01:03:07" itemprop="dateModified" datetime="2021-07-13T01:03:07+08:00">2021-07-13</time>
       </span>
 
   
@@ -254,8 +254,11 @@
 </ol>
 <p>这个方式，正是许多网络文档解释不清楚的地方。在使用<code>hexo g</code> 命令构建网页时，它会将<code>source</code>中的<code>PDF</code>文件夹复制到<code>public</code>文件夹中，在填写PDF路径进应当是认为<code>public</code>主根目录，实际上我们发布的网站就是<code>public</code>中的所有文件。因此，我发布的<code>manjaro.pdf</code> 放置于<code>source/PDF/</code> 中，则文章中应当如下引用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /PDF/manjaro.pdf %&#125;</span><br></pre></td></tr></table></figure>
-<div class="note warning"><p>注意：在引用中之所以如上书写，因为在文章中如果用<code>./PDF/manjaro.pdf</code> 的形式，则只能在刚登录博客时显示。一旦切换了目录，则不能正确显示，根据上传文件时所建立的<code>PDF</code>目录，则写上完整地址，可以实现任何情况下的正确<code>PDF</code>展示。</p>
+<div class="note warning"><p>注意：在最初的引用时，我填写了具体的链接地址，当时是理解上存在问题。填写具体地址，虽然可以正常显示，但是在部署到不同的网站时由于域名不同，则新的部署将不能正常显示PDF文件。而<code>source/PDF/</code> 这个路径直接认为<code>source</code>为根目录，在使用hexo g生成博客时，会自动将此地址转换到加上域名的引用。所以这是一个最佳方案。由于网络上的文章<code>./PDF/manjaro.pdf</code>的写法是不对的，这也是之前一直没有成功的原因，2021年7月13日，对本文进行了修正,写成如上格式才是对的。</p>
 </div>
+<ol start="3" type="1">
+<li>嵌入manjaro.pdf文件展示</li>
+</ol>
 <div class="pdf-container" data-target="/PDF/manjaro.pdf" data-height="500px"></div>
 
     </div>
