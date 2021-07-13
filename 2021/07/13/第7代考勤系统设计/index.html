@@ -20,23 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"fengzhenhua-vip.github.io","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="格物万象，究理天人">
-<meta property="og:url" content="http://fengzhenhua-vip.github.io/tags/Hexo/index.html">
+<meta name="description" content="经过第6代考勤系统的优化升级分析，决定进一步加强顶层设计，直接规划第7代系统，在效率和可拓展性上找到新的平衡。下面简单描述第7代系统设计思路：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第7代考勤系统设计">
+<meta property="og:url" content="http://fengzhenhua-vip.github.io/2021/07/13/%E7%AC%AC7%E4%BB%A3%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="格物万象，究理天人">
+<meta property="og:description" content="经过第6代考勤系统的优化升级分析，决定进一步加强顶层设计，直接规划第7代系统，在效率和可拓展性上找到新的平衡。下面简单描述第7代系统设计思路：">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-13T12:51:01.000Z">
+<meta property="article:modified_time" content="2021-07-13T13:37:26.050Z">
 <meta property="article:author" content="冯振华">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://fengzhenhua-vip.github.io/tags/Hexo/">
+<link rel="canonical" href="http://fengzhenhua-vip.github.io/2021/07/13/%E7%AC%AC7%E4%BB%A3%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/Hexo/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://fengzhenhua-vip.github.io/2021/07/13/%E7%AC%AC7%E4%BB%A3%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/","path":"2021/07/13/第7代考勤系统设计/","title":"第7代考勤系统设计"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: Hexo | 格物万象，究理天人</title>
+<title>第7代考勤系统设计 | 格物万象，究理天人</title>
   
 
 
@@ -166,230 +170,165 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Hexo
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fengzhenhua-vip.github.io/2021/07/13/%E7%AC%AC7%E4%BB%A3%E8%80%83%E5%8B%A4%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="冯振华">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="格物万象，究理天人">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第7代考勤系统设计
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-07-13 20:51:01 / 修改时间：21:37:26" itemprop="dateCreated datePublished" datetime="2021-07-13T20:51:01+08:00">2021-07-13</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>经过第6代考勤系统的优化升级分析，决定进一步加强顶层设计，直接规划第7代系统，在效率和可拓展性上找到新的平衡。下面简单描述第7代系统设计思路：</p>
+<span id="more"></span>
+<ol type="1">
+<li>打开<code>待处理文件</code>，同时打开<code>配置文件（智能）</code></li>
+<li>调入<code>停止考勤表</code>+<code>待处理文件</code> = source(源表），Dmin(最小日期),Dmax(最大日期）</li>
+<li>生成对时表
+<ul>
+<li>调入<code>校准时间表</code>+调入<code>自习表</code> = <code>对时表A</code></li>
+<li>调入<code>调课表</code> + Dmin , Dmax = <code>对时表B</code> (含有具体调课信息）</li>
+<li>调入<code>二次校准表</code> + <code>对时表A</code>=<code>对时表C</code> （用来处理特殊情况）</li>
+</ul></li>
+<li>调入<code>标准时间</code>，根据Dmin和Dmax 过滤有效的请假信息，生成<code>请假表</code></li>
+<li>逐行考勤
+<ul>
+<li>定位Source的第i行</li>
+<li>第i行比对<code>请假表</code>
+<ul>
+<li>比对成功，加入请假信息到签到签退,设置比对码=1</li>
+<li>比对不成功，则设置比对码=0</li>
+</ul></li>
+<li>置空校准时间记录临时变量temp,对时码=0</li>
+<li>如果比对码=0 ，则执行比对<code>对时表B</code>
+<ul>
+<li>比对成功，校准Source第i行，记录校准时间到temp,生成对时码=1</li>
+<li>比对不成轼，设置对时码=0</li>
+</ul></li>
+<li>如果对时码B=0,则执行比对<code>对时表C</code>
+<ul>
+<li>比对成功，校准Source第i行，记录校准时间到temp,生成对时码=1</li>
+<li>比对不成功，设置对时码=0</li>
+</ul></li>
+<li>探测第i行职务，确定职务码j,调用Kernel(j)针对此职务的考勤，生成统计信息
+<ul>
+<li>如果签到签退为空，则填入<code>漏签</code>，并统计漏签一次</li>
+<li>如果签到签退不为空，则与职务j上班的标准时间比对确定违规情况，同时生成<code>着色码</code>，记录到source第i行中</li>
+<li>如对时码=1,则根据temp恢复source签到签退时间</li>
+<li>根据职务码，导出结果到该组数组source(j)</li>
+</ul></li>
+<li>定位到第i+1行，重复以上步骤，直到处理完成所有行。</li>
+<li>最终得到一系统职务的考勤结果source(1),sourc(2)...</li>
+</ul></li>
+<li>生成报表
+<ul>
+<li>定位到第j组职务数组source(j)</li>
+<li>调用职务j的汇总统计模块，因为班主任有弹性考勤</li>
+<li>根据汇总结果，生成异常报表数组source(j)yc</li>
+<li>新建文件source(j).xlsx</li>
+<li>据<code>着色码</code>对该职务报表的签到签退上色，其中0绿，1黄，2红</li>
+<li>格式化报表</li>
+<li>新建文件source(j)yc.xlsx</li>
+<li>据<code>着色码</code>对该职务异常报表的签到签退上色，其中0绿，1黄，2红</li>
+<li>格式化报表</li>
+<li>格式化导演报表</li>
+<li>重复以上各步骤，生成所有报表。</li>
+</ul></li>
+<li>根据请假表生成上交学校的请假表，但是考虑到系统的不同时性，此模块应当单独拿出来，每周一执行。</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-12T15:25:55+08:00"
-              content="2021-07-12">
-          07-12
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>您的支持将鼓励我继续创作，请我喝杯咖啡吧^_^</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="冯振华 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="冯振华 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/12/Markdown%E8%AF%AD%E6%B3%95%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/" itemprop="url">
-            <span itemprop="name">Markdown语法绘制流程图</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-12T11:50:21+08:00"
-              content="2021-07-12">
-          07-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/12/Next%E4%B8%BB%E9%A2%98%E8%8F%9C%E5%8D%95%E9%A1%B9/" itemprop="url">
-            <span itemprop="name">Next主题菜单项</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-31T14:46:46+08:00"
-              content="2021-05-31">
-          05-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/31/Hexo%E4%B8%AD%E5%B1%95%E7%A4%BAPDF%E6%96%87%E6%A1%A3/" itemprop="url">
-            <span itemprop="name">Hexo中展示PDF文档</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T21:07:00+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/%E4%BD%BF%E7%94%A8Hexo%E4%BC%98%E9%9B%85%E7%9A%84%E5%86%99%E4%BD%9C/" itemprop="url">
-            <span itemprop="name">使用Hexo优雅的写作</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-30T20:33:20+08:00"
-              content="2021-05-30">
-          05-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/30/Hexo%E6%B7%BB%E5%8A%A0%E5%AE%A0%E7%89%A9/" itemprop="url">
-            <span itemprop="name">Hexo添加宠物</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-27T16:41:50+08:00"
-              content="2021-05-27">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/27/Hexo%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%94%AF%E6%8C%81/" itemprop="url">
-            <span itemprop="name">Hexo数学公式支持</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-20T11:24:16+08:00"
-              content="2021-05-20">
-          05-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/20/%E5%BE%AE%E8%B0%83landscape%E4%B8%BB%E9%A2%98/" itemprop="url">
-            <span itemprop="name">微调landscape主题</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-19T20:03:41+08:00"
-              content="2021-05-19">
-          05-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/19/Markdown%E8%AF%AD%E8%A8%80/" itemprop="url">
-            <span itemprop="name">Markdown语言</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-19T09:47:17+08:00"
-              content="2021-05-19">
-          05-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/19/%E4%B8%8D%E5%90%8C%E7%94%B5%E8%84%91%E4%B8%8A%E4%BD%BF%E7%94%A8Hexo%E5%86%99%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">不同电脑上使用Hexo写博客</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-18T15:11:46+08:00"
-              content="2021-05-18">
-          05-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/05/18/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">使用Hexo搭建博客</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/13/LaTeX%E4%B8%AD%E4%BD%BF%E7%94%A8TikZ%E5%AE%8F%E5%8C%85%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="prev" title="LaTeX中使用TikZ宏包绘制流程图">
+                  <i class="fa fa-chevron-left"></i> LaTeX中使用TikZ宏包绘制流程图
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>
