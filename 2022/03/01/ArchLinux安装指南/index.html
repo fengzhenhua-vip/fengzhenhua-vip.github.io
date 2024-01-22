@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#006600"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#006600">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fengzhenhua-vip.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":200},"bookmark":{"enable":true,"color":"#006600","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Endeavour (新手选择)Take control of your hardware.    ArchLinux (老手选择)A simple, lightweight distribution.   ArchLinux是一款灵活、强大、可定制的Linux发行版，提供丰富的软件包和工具，支持滚动更新和多种桌面环境，拥有庞大的社区支持和方便的包管理器，适合各种用户需求和使用场景。Endea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux安装指南">
+<meta property="og:url" content="https://fengzhenhua-vip.github.io/2022/03/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="BNU-FZH">
+<meta property="og:description" content="Endeavour (新手选择)Take control of your hardware.    ArchLinux (老手选择)A simple, lightweight distribution.   ArchLinux是一款灵活、强大、可定制的Linux发行版，提供丰富的软件包和工具，支持滚动更新和多种桌面环境，拥有庞大的社区支持和方便的包管理器，适合各种用户需求和使用场景。Endea">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fengzhenhua-vip.github.io/Picture/pygoldendict.png">
+<meta property="article:published_time" content="2022-03-01T14:42:38.000Z">
+<meta property="article:modified_time" content="2024-01-22T12:54:29.843Z">
+<meta property="article:tag" content="电脑技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fengzhenhua-vip.github.io/Picture/pygoldendict.png">
+
+
+<link rel="canonical" href="https://fengzhenhua-vip.github.io/2022/03/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fengzhenhua-vip.github.io/2022/03/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/","path":"2022/03/01/ArchLinux安装指南/","title":"ArchLinux安装指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ArchLinux安装指南 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="https://fengzhenhua.gitlab.io/%E8%BD%AF%E4%BB%B6/" rel="section" target="_blank"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">版本选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">制作启动盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wifi%E8%81%94%E7%BD%91"><span class="nav-number">3.</span> <span class="nav-text">WiFi联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">4.</span> <span class="nav-text">硬盘分区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="nav-number">4.1.</span> <span class="nav-text">分区方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="nav-number">4.2.</span> <span class="nav-text">格式化和挂载分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">换国内源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.</span> <span class="nav-text">安装系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.</span> <span class="nav-text">设置系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%AE%89%E8%A3%85%E5%9C%A8%E7%A1%AC%E7%9B%98%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.1.</span> <span class="nav-text">切换到安装在硬盘中的系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E8%BD%AF%E4%BB%B6"><span class="nav-number">7.2.</span> <span class="nav-text">安装必要软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8%E7%BD%91%E7%BB%9C"><span class="nav-number">7.3.</span> <span class="nav-text">启用网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEroot%E5%AF%86%E7%A0%81"><span class="nav-number">7.4.</span> <span class="nav-text">设置root密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E7%94%A8%E6%88%B7"><span class="nav-number">7.5.</span> <span class="nav-text">新增用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5sudo"><span class="nav-number">7.6.</span> <span class="nav-text">加入sudo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85grub%E5%BC%95%E5%AF%BC"><span class="nav-number">7.7.</span> <span class="nav-text">安装grub引导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC"><span class="nav-number">7.8.</span> <span class="nav-text">安装引导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="nav-number">7.9.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="nav-number">7.10.</span> <span class="nav-text">设置时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%A1%AC%E4%BB%B6%E6%97%B6%E9%97%B4"><span class="nav-number">7.11.</span> <span class="nav-text">设置硬件时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">7.12.</span> <span class="nav-text">安装桌面环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nvidia%E6%98%BE%E5%8D%A1"><span class="nav-number">8.</span> <span class="nav-text">安装Nvidia显卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%98%BE%E5%8D%A1"><span class="nav-number">8.1.</span> <span class="nav-text">安装显卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6"><span class="nav-number">9.</span> <span class="nav-text">安装电源管理软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#endeavour%E7%9A%84%E9%BB%98%E8%AE%A4%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86"><span class="nav-number">9.1.</span> <span class="nav-text">Endeavour的默认电源管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7tlp"><span class="nav-number">9.2.</span> <span class="nav-text">高级电源管理工具TLP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thinkpad-t490-%E8%AF%86%E5%88%ABm2.-2248%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98"><span class="nav-number">10.</span> <span class="nav-text">ThinkPad-T490 识别M2.
+2248固态硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%93%9D%E7%89%99%E6%9C%8D%E5%8A%A1"><span class="nav-number">11.</span> <span class="nav-text">安装蓝牙服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kde-plasma5-%E9%85%8D%E7%BD%AEbluetooth"><span class="nav-number">11.1.</span> <span class="nav-text">KDE-Plasma5 配置BlueTooth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnome3-%E9%85%8D%E7%BD%AEbluetooth"><span class="nav-number">11.2.</span> <span class="nav-text">Gnome3 配置BlueTooth</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85fwupd%E5%8D%87%E7%BA%A7%E7%B3%BB%E7%BB%9F%E5%9B%BA%E4%BB%B6%E5%8D%B1%E9%99%A9%E6%93%8D%E4%BD%9C"><span class="nav-number">12.</span> <span class="nav-text">安装fwupd升级系统固件(危险操作)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%80%E5%87%BA%E6%8D%A2%E6%A0%B9%E5%B9%B6%E9%87%8D%E5%90%AF"><span class="nav-number">12.1.</span> <span class="nav-text">退出换根并重启</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE"><span class="nav-number">13.</span> <span class="nav-text">基础设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">13.1.</span> <span class="nav-text">配置国内镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85cn%E6%BA%90"><span class="nav-number">13.2.</span> <span class="nav-text">配置国内CN源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEarch4edu%E6%BA%90"><span class="nav-number">13.3.</span> <span class="nav-text">配置arch4edu源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93"><span class="nav-number">13.4.</span> <span class="nav-text">安装中文字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E4%B8%BA%E4%B8%AD%E6%96%87"><span class="nav-number">13.5.</span> <span class="nav-text">设置系统为中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AEgit%E4%B8%BAgithub.com%E9%95%9C%E5%83%8F"><span class="nav-number">13.6.</span> <span class="nav-text">全局配置git为github.com镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85paru%E6%88%96yay"><span class="nav-number">13.7.</span> <span class="nav-text">安装paru或yay</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85paru%E6%88%96yay-%E6%9C%80%E6%96%B0%E7%9A%84paru%E8%A1%A8%E7%8E%B0%E6%9B%B4%E5%A5%BD%E5%BB%BA%E8%AE%AE%E5%AE%89%E8%A3%85"><span class="nav-number">13.7.1.</span> <span class="nav-text">安装paru或yay,
+最新的paru表现更好,建议安装。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEparu%E5%92%8Cyay%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="nav-number">13.7.2.</span> <span class="nav-text">配置paru和yay多线程下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#paru-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE"><span class="nav-number">13.7.3.</span> <span class="nav-text">Paru 高级用户配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">13.8.</span> <span class="nav-text">配置桌面环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="nav-number">13.9.</span> <span class="nav-text">关闭文件索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%ADkde-plasma5-%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="nav-number">13.9.1.</span> <span class="nav-text">关闭KDE Plasma5
+文件索引！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%ADgnome3%E6%96%87%E4%BB%B6%E7%B4%A2%E5%BC%95"><span class="nav-number">13.9.2.</span> <span class="nav-text">关闭Gnome3文件索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84efi%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="nav-number">13.10.</span> <span class="nav-text">删除多余的EFI启动项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E9%80%89%E9%A1%B9grub"><span class="nav-number">13.11.</span> <span class="nav-text">修改启动选项grub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E4%B8%8Befibootmgr%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%A0%E9%99%A4uefi%E4%B8%BB%E6%9D%BF%E5%A4%9A%E4%BD%99%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="nav-number">13.12.</span> <span class="nav-text">Linux下EFIBOOTMGR的使用，删除UEFI主板多余的启动项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3linux%E5%92%8Cwindows%E6%97%B6%E9%97%B4%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98"><span class="nav-number">14.</span> <span class="nav-text">解决Linux和Windows时间不一致问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">14.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%A7%A3%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6"><span class="nav-number">15.</span> <span class="nav-text">安装解压缩软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95fcitx5"><span class="nav-number">16.</span> <span class="nav-text">安装中文输入法Fcitx5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEvim%E5%92%8Cneovim"><span class="nav-number">17.</span> <span class="nav-text">配置vim和neovim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#neovim%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5"><span class="nav-number">18.</span> <span class="nav-text">Neovim健康检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim%E5%92%8Cneovim%E9%85%8D%E7%BD%AEfcitx5%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2"><span class="nav-number">19.</span> <span class="nav-text">vim和neovim配置fcitx5自动切换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fcitx5-archwiki"><span class="nav-number">19.1.</span> <span class="nav-text">Fcitx5-ArchWiki</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E4%B9%8B%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%A1%88"><span class="nav-number">19.2.</span> <span class="nav-text">我之前使用的方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85"><span class="nav-number">20.</span> <span class="nav-text">必备工具一键安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEtexlive"><span class="nav-number">21.</span> <span class="nav-text">安装配置TexLive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%BF%AE%E5%A4%8D"><span class="nav-number">22.</span> <span class="nav-text">问题修复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8dolphin%E6%8C%82%E8%BD%BD%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84windows11-ntfs%E5%88%86%E5%8C%BA%E5%A4%B1%E8%B4%A5"><span class="nav-number">22.1.</span> <span class="nav-text">文件管理器Dolphin挂载双系统的Windows11
+NTFS分区失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grub%E4%B8%A2%E5%A4%B1%E5%AF%BC%E8%87%B4%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8"><span class="nav-number">22.2.</span> <span class="nav-text">Grub丢失导致系统无法启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7"><span class="nav-number">23.</span> <span class="nav-text">安装截图工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%9B%BE%E5%83%8F%E6%9F%A5%E7%9C%8B%E5%99%A8"><span class="nav-number">24.</span> <span class="nav-text">安装图像查看器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8firefox"><span class="nav-number">25.</span> <span class="nav-text">安装浏览器firefox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8B%E8%BD%BD%E8%BD%AF%E4%BB%B6xtreme-download-manager"><span class="nav-number">26.</span> <span class="nav-text">安装下载软件Xtreme Download
+Manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AF%8D%E5%85%B8%E8%BD%AF%E4%BB%B6goldendict"><span class="nav-number">27.</span> <span class="nav-text">安装词典软件Goldendict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%85%BE%E8%AE%AF%E4%BC%9A%E8%AE%AE%E5%92%8Cqq"><span class="nav-number">28.</span> <span class="nav-text">安装腾讯会议和QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-number">29.</span> <span class="nav-text">安装音乐播放器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B0%8F%E7%99%BD%E7%BE%8A%E4%BA%91%E7%9B%98"><span class="nav-number">30.</span> <span class="nav-text">安装小白羊云盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">31.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.baidu.com/" title="百度搜索 → https:&#x2F;&#x2F;www.baidu.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>百度搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://app.chatra.io/" title="聊天登录 → https:&#x2F;&#x2F;app.chatra.io&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-comments fa-fw"></i>聊天登录</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pan.bnu.edu.cn/" title="师大云盘 → https:&#x2F;&#x2F;pan.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>师大云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://panda321.com/" title="熊猫学术 → https:&#x2F;&#x2F;panda321.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.51voa.com/" title="美国之窗 → https:&#x2F;&#x2F;www.51voa.com" rel="noopener me" target="_blank"><i class="fas fa-globe-americas fa-fw"></i>美国之窗</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://englishtest.duolingo.cn/applicants" title="多邻国测 → https:&#x2F;&#x2F;englishtest.duolingo.cn&#x2F;applicants" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国测</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cas.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;cas.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fengzhenhua-vip.github.io/2022/03/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ArchLinux安装指南 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ArchLinux安装指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-01 22:42:38" itemprop="dateCreated datePublished" datetime="2022-03-01T22:42:38+08:00">2022-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-22 20:54:29" itemprop="dateModified" datetime="2024-01-22T20:54:29+08:00">2024-01-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="/Picture/endeavouroslogo.jpg"></object>
+<p>Endeavour (新手选择)</p><p>Take control of your hardware.</p>
+<a target="_blank" rel="noopener" href="https://endeavouros.com"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="/Picture/archlogo.png"></object>
+<p>ArchLinux (老手选择)</p><p>A simple, lightweight distribution.</p>
+<a target="_blank" rel="noopener" href="https://archlinux.org/"></a>
+</div></div>
+<div class="note info"><p>ArchLinux是一款灵活、强大、可定制的Linux发行版，提供丰富的软件包和工具，支持滚动更新和多种桌面环境，拥有庞大的社区支持和方便的包管理器，适合各种用户需求和使用场景。Endeavour
+是一个基于ArchLinux的轻量级和用户友好的发行版，预装了桌面环境和预配置的软件包，旨在提供一个无忧的ArchLinux体验。本手册给出ArchLinux及其衍生版官方网站，
+提供完整可靠的安装流程和很多典型问题的有效解决方案，如果您追求省心，开箱即用，请安装Endeavour,
+如果您追求简洁的极致体验，请选择ArchLinux。由于个人能力有限，出现错误在所难免，欢迎反馈问题,交流学习共同进步。</p>
+</div>
+<span id="more"></span>
+<h2 id="版本选择">版本选择</h2>
+<p><code>ArchLinux</code>的安装镜像是没有安装桌面环境的，只安装了一些必备的软件，它的安装需要在命令行中进行，如果您已经有一定的<code>Linux</code>基础，那建议您直接按照本教程安装<code>ArchLinux</code>。如果您是一名初学者，不熟悉<code>Linux</code>命令，只要您尝试过<code>Ubuntu</code>、<code>Debian</code>、<code>LinuxMint</code>、<code>LinuxDeepin</code>等发行版，那您完全可以选择<code>ArchLinux</code>的衍生版<a
+target="_blank" rel="noopener" href="https://endeavouros.com">Endeavour</a>, Endeavour 让你有机会学习
+Arch，而无需同时学习 EFI、驱动搜索和安装（看着你的
+nVidia）、桌面环境/窗口管理器、显示管理器等。它可以一次性设置好所有东西，让你有时间按照自己的节奏学习
+Arch Linux
+的内部工作。由于图形化安装的简便性，本文不打算详述，直接参考<code>Endeavour</code>的官方文档(相当详细)：<a
+target="_blank" rel="noopener" href="https://discovery.endeavouros.com/category/installation/">BTRFS
+Installation</a> 和 <a
+target="_blank" rel="noopener" href="https://discovery.endeavouros.com">Endeavour Wiki</a>。</p>
+<details>
+<summary>
+<label style="color:blue">如何选择适合您的Linux ?</label>
+</summary>
+<p>刚刚入门的小白往往选择宣传的比较多的<code>Ubuntu</code>,但是我想告诉您，尝试一下其他发行版，您会找到更好的。下面的文章可以帮您做出选择：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-7532-1.html">你应该丢弃
+Windows，选择 Linux 的五大理由</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Arch_compared_to_other_distributions">Arch
+compared to other distributions</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.howtogeek.com/872962/arch-linux-vs-ubuntu/">Arch Linux
+vs. Ubuntu: Which Should You Use?</a></li>
+<li><a target="_blank" rel="noopener" href="https://itsfoss.com/ubuntu-vs-arch/">Ubuntu vs Arch: Which
+Linux Distro is better?</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-14485-1.html">Ubuntu vs
+Arch：孰优孰劣？</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1526762">为什么我抛弃了
+Ubuntu？</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://juejin.cn/post/6844903970473771015">我为什么不喜欢Ubuntu？</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-13104-1.html">9 个易用的基于 Arch
+的用户友好型 Linux 发行版</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-15600-1.html">5 个最好的 Arch
+Linux 衍生发行版，适合所有人</a></li>
+</ul>
+<div class="note success"><p>从运行速度的角度讲，执行<code>systemctl list-unit-files --state=enabled --no-pager</code>得到默认情况下运行的服务和守护进程的数量，Ubuntu
+为90个，Manjaro 为24个， Endeavour 为 17个，而按我的教程配置好的
+ArchLinux 仅11个，所以原生的<code>ArchLinux</code>才是最佳选择。</p>
+</div>
+</details>
+<hr />
+<center>
+<i class="fa fa-angle-double-down" style="font-size:48px;color:red"></i><font color="green" size="8" >ArchLinux安装流程</font>
+</center>
+<hr />
+<h2 id="制作启动盘">制作启动盘</h2>
+<ul>
+<li><p>下载ISO镜像:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/">ArchLinux(清华大学开源镜像站)</a></td>
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/archlinux/iso/latest/">ArchLinux(中国科学技术大学开源镜像站)</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/archlinux/iso/latest/">ArchLinux(北京外国语大学开源镜像站)</a></td>
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/archlinux/iso/latest/">ArchLinux(重庆大学开源镜像站)</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="http://mirrors.hit.edu.cn/archlinux/iso/latest/">ArchLinux(哈尔滨工业大学开源镜像站)</a></td>
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.jlu.edu.cn/archlinux/iso/latest/">ArchLinux(吉林大学开源镜像站)</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.jlu.edu.cn/archlinux/iso/latest/">ArchLinux(兰州大学开源镜像站)</a></td>
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://mirrors.aliyun.com/archlinux/iso/latest/">ArchLinux(阿里云开源镜像站)</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="http://mirrors.nju.edu.cn/archlinux/iso/latest/">ArchLinux(南京大学镜像站)</a></td>
+<td style="text-align: left;"><a
+target="_blank" rel="noopener" href="https://archlinux.org/download/">ArchLinux(官方下载列表)</a></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>刻录启动U盘: <div class="tabs" id="刻录启动盘"><ul class="nav-tabs"><li class="tab active"><a href="#刻录启动盘-1">图形界面工具</a></li><li class="tab"><a href="#刻录启动盘-2">命令行工具</a></li></ul><div class="tab-content"><div class="tab-pane active" id="刻录启动盘-1"><ul>
+<li><code>Linux</code>: <a
+href="/2021/07/10/Ventoy制作多系统启动盘">Ventoy制作多系统启动盘</a></li>
+<li><code>Windows</code>: <a target="_blank" rel="noopener" href="https://rufus.ie/zh/">Rufus-轻松创建
+USB 启动盘</a></li>
+</ul></div><div class="tab-pane" id="刻录启动盘-2"><ul>
+<li>插入<code>U</code>盘到计算机</li>
+<li><code>sudo fdisk -l</code>
+确认<code>U</code>盘信息<code>/dev/sdc</code></li>
+<li>写入镜像 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=archlinux-2023.12.01-x86_64.iso of=/dev/sdc</span><br></pre></td></tr></table></figure></li>
+</ul></div></div></div></p></li>
+</ul>
+<h2 id="wifi联网">WiFi联网</h2>
+<ul>
+<li>如果是有线网，且网络已经连通，<label style="color:red">不需要验证</label>时，则已经联网成功，可以跳过。</li>
+<li>在校园里使用校园网是需要验证的，最佳的做法是用手机联网,
+使用数据线连接电脑USB接口, 打开手机:
+<code>设置</code>→<code>连接</code>→<code>移动热点和网线共享</code>→<code>USB网络共享</code>
+。</li>
+<li>检测联网成功：<code>ping www.baidu.com</code>
+看到较快的返回值，证明已经联网成功。</li>
+</ul>
+<details>
+<summary>
+<label style="color:blue">不借助手机时笔记本无线WIFI联网</label>
+</summary>
+<figure class="highlight sh"><figcaption><span>查看网卡</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iwctl</span><br><span class="line">device list</span><br></pre></td></tr></table></figure>
+<p>执行完以上命令后，获得无线网卡信息：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">                                   Devices                                   *</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">  Name                Address             Powered   Adapter   Mode      </span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">  wlan0               d0:ab:d5:c0:08:00   on        phy0      station   </span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>转接无线网线</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">station &lt;无线网卡名&gt; scan</span><br><span class="line">station &lt;无线网卡名&gt; get-networks</span><br><span class="line">station &lt;无线网卡名&gt; connect &lt;网络名&gt;</span><br></pre></td></tr></table></figure>
+接下来他会让你输入wifi密码，输入完毕，再执行命令<code>exit</code>退出，网络就连接好了。
+</details>
+<h2 id="硬盘分区">硬盘分区</h2>
+<p>下面给出的是<code>Windwos11</code>和<code>Archlinux</code>双系统的安装方案，分区后应当先安装好<code>Windows11</code>再安装<code>Archlinux</code>，这样在构建<code>Grub</code>时<code>Linux</code>可以自动探测到<code>windows</code>的启动引导菜单，反之<code>Windwos11</code>安装程序会覆盖<code>Linux</code>的<code>Grub</code>，因此
+<label style="color:red">顺序不能颠倒</label>。</p>
+<h3 id="分区方案">分区方案</h3>
+<figure class="highlight sh"><figcaption><span>执行lsblk 得到分区结果</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS</span><br><span class="line">nvme0n1     259:0    0 953.9G  0 disk </span><br><span class="line">├─nvme0n1p1 259:1    0   501M  0 part /boot/efi</span><br><span class="line">├─nvme0n1p2 259:2    0   100G  0 part /</span><br><span class="line">├─nvme0n1p3 259:3    0     8G  0 part [SWAP]</span><br><span class="line">├─nvme0n1p4 259:4    0   790G  0 part /home</span><br><span class="line">├─nvme0n1p5 259:5    0    16M  0 part </span><br><span class="line">└─nvme0n1p6 259:6    0  55.4G  0 part </span><br></pre></td></tr></table></figure>
+<p>上图是我当前的分区方案，各部分作用为</p>
+<ol type="1">
+<li><code>nvme0n1p1</code>
+是<code>/boot/efi</code>分区，安装grub、存放Linux kernel 以及 initrd
+映像。这些都是启动时必需的东西，单独存在 boot 区便于管理。</li>
+<li><code>nvme0n1p2</code> 是<code>/</code>分区,
+安装Linux系统及其默认软件。</li>
+<li><code>nvme0n1p3</code>
+是<code>swap</code>分区，当内存不够时充当虚拟内存,
+Linux的swap分区格式为内存交换做过专门优化。</li>
+<li><code>nvme0n1p4</code>
+是<code>/home</code>分区，是用户的文档、视频等文件存放的目录，对于单用户而言这部分要尽可能设置大一些。</li>
+<li><code>nvme0n1p5</code> 和<code>nvme0n1p6</code>
+是安装<code>windows11</code>留出的空间，其中<code>p5</code>是<code>windwos11</code>安装过程中自动生成的，由于安装<code>windwos11</code>的空间不允许小于54G,所以给了它55.4G,
+由于我的电脑安装了单独的<code>2242 m2</code>硬盘，<code>windwos11</code>可以自动识别，所以只给<code>windwos11</code>留一个可以安装启动的空间就可以了。</li>
+</ol>
+<h3 id="格式化和挂载分区">格式化和挂载分区</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1</span><br><span class="line">mkfs.ext4 /dev/nvme0n1p2</span><br><span class="line">mkswap /dev/nvme0n1p3</span><br><span class="line">mkfs.ext4 /dev/nvme0n1p4</span><br><span class="line">mount /dev/nvme0n1p2  /mnt/</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/boot</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/boot/efi</span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot/efi</span><br><span class="line"><span class="built_in">mkdir</span> /mnt/home</span><br><span class="line">mount /dev/nvme0n1p4 /mnt/home</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>如果您不熟悉命令行分区操作，可以启动一个<code>Live</code>发行版，使用其内置的磁盘分区工具在图形界面下分区，然后再转回到文本安装<code>Archlinux</code>。推荐基于<code>Archlinux</code>的<code>Manjaro</code>,启动镜像后使用<code>Gparted</code>来分区即可。</p>
+<p>如果是重装系统，那<label style="color:red">不要格式化原来的<code>efi</code>分区</label>，因为里面保存有<code>Windows</code>的启动引导程序，直接挂载就可以了。</p>
+</div>
+<h2 id="换国内源">换国内源</h2>
+<div class="tabs" id="换国内源"><ul class="nav-tabs"><li class="tab active"><a href="#换国内源-1">手动配置</a></li><li class="tab"><a href="#换国内源-2">自动配置</a></li></ul><div class="tab-content"><div class="tab-pane active" id="换国内源-1"><ol type="1">
+<li><p>打开官方镜像源网址：<a
+target="_blank" rel="noopener" href="https://archlinux.org/mirrors/">https://archlinux.org/mirrors/</a></p></li>
+<li><p>点击第二列<code>Country</code>,
+于是各国家可用镜像按字母顺序排列，找到<code>China</code></p></li>
+<li><p>编辑<code>/etc/pacman.d/mirrorlist</code>添加国内源即可</p></li>
+</ol>
+<p>由于换源属于一个使用频率相当低的操作，所以建议使用手动配置。</p></div><div class="tab-pane" id="换国内源-2"><ol type="1">
+<li><p>国内常用的：选择在<label style="color:red">最近同步的</label>，并且是位于中国的12个镜像，然后根据下载速度进行排序，最后将结果覆写到
+<code>/etc/pacman.d/mirrorlist</code> 文件 <figure class="highlight sh"><figcaption><span>切换为国内最快的12个ArchLinux源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reflector --verbose -c China --latest 12 --<span class="built_in">sort</span> rate --threads 100 --save /etc/pacman.d/mirrorlist</span><br><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure></p></li>
+<li><p>需要全球最新：下载速度进行排序，并筛选出前5个最近同步的镜像，最后将结果覆写到
+<code>/etc/pacman.d/mirrorlist</code> 文件 <figure class="highlight sh"><figcaption><span>全球最新</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reflector --verbose --latest 5 --<span class="built_in">sort</span> rate --save /etc/pacman.d/mirrorlist</span><br><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<p>全球最新可以让您将获得最新的系统，但是并不意味在国内速度最快，因为国内镜像源肯定比国外快，但是却不一定是最新的，如果选择国内常用的，那您将获得国内最新的系统。二选一，请您自己决定。
+2024年01月19日,
+在更新系统时发现<code>reflector</code>返回错误<code>error: no mirrors found</code>,
+在问题没有被官方解决前可以使用手动方法切换镜像，对于低频率操作影响不大。</p></div></div></div>
+<h2 id="安装系统">安装系统</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware</span><br><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<p>至此系统安装好，由于还没有配置，暂时无法使用。</p>
+<h2 id="设置系统">设置系统</h2>
+<h3 id="切换到安装在硬盘中的系统">切换到安装在硬盘中的系统</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+<h3 id="安装必要软件">安装必要软件</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr vim neovim iwd dhcpcd sudo networkmanager os-prober fastfetch</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>fastfetch 在终端上输出本机信息，另外还有 screenfetch 和 neofetch,
+因为 fastfetch 是用 C 语言写的，所以速度极快。</p>
+</div>
+<h3 id="启用网络">启用网络</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> dhcpcd NetworkManager iwd</span><br></pre></td></tr></table></figure>
+<h3 id="设置root密码">设置<code>root</code>密码</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<h3 id="新增用户">新增用户</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel &lt;用户名&gt;</span><br><span class="line">passwd &lt;用户名&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="加入sudo">加入<code>sudo</code></h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EDITOR=vim visudo</span><br></pre></td></tr></table></figure>
+<p>找到 <code>%wheel All=(ALL:ALL) ALL</code>把前面的注释去掉</p>
+<h3 id="安装grub引导">安装grub引导</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
+<p>找到 <code>GRUB_DISABLE_OS_PROBER=false</code>
+去掉前面的注释(应该是文件的最后一行)</p>
+<h3 id="安装引导">安装引导</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id= ArchLinux</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<h3 id="设置语言">设置语言</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+<p>去掉 <code>en_US.UTF-8</code> 和
+<code>zh_CN.UTF-8</code>前的注释，再执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+<h3 id="设置时区">设置时区</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<h3 id="设置硬件时间">设置硬件时间</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc --utc</span><br></pre></td></tr></table></figure>
+<h3 id="安装桌面环境">安装桌面环境</h3>
+<p>作为一名资深Linux使用都，我推荐大家使用<code>Plasma5</code>,
+目前它已经相当稳定。最初我从<code>Plasma4</code>转到<code>Gnome3</code>是因为<code>Plasma4</code>经常崩溃，但是到了<code>Plasma5</code>就稳定了。在使用<code>Gnome3</code>的过程中，发现它也很优秀，它很干净整洁，没有过多的配置选项，美观独特，但是想要提高工作效率还必须安装一些<code>Gnome3</code>的插件才行，比如<code>hide-top-bar</code>、<code>dash-to-dock</code>，这两个是必备插件，但是这也成为了它的致命缺点，每次<code>Gnome3</code>大版本升级时，一大批插件就会挂掉，而且不能做到同步更新，插件失效的空白期是相当影响工作效率的。比如<code>hide-top-bar</code>到现在已经过去二个月了，还没有适配<code>Gnome3 V45</code>,
+这也是直接导致我选择<code>KDE-Plasma5</code>的原因，所以推荐大家工作的话还是使用<code>KDE-Plasma5</code>吧，因此我把它放在了默认标签打开。</p>
+<div class="tabs" id="安装桌面环境"><ul class="nav-tabs"><li class="tab active"><a href="#安装桌面环境-1">KDE-Plasma</a></li><li class="tab"><a href="#安装桌面环境-2">Gnome3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="安装桌面环境-1"><figure class="highlight sh"><figcaption><span>安装KDE-Plasma</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg plasma-desktop kwallet-pam plasma-nm plasma-pa powerdevil firefox spectacle gwenview dolphin konsole</span><br><span class="line">sudo pcaman -S sddm  sddm-kcm</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sddm.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> NetworkManager</span><br></pre></td></tr></table></figure>
+<div class="note info">
+<ul>
+<li>
+<a target="_blank" rel="noopener" href="https://github.com/sddm/sddm/">Simple Desktop Display
+Manager</a> (<code>SDDM</code>)是一个显示管理器。它是<code>KDE
+Plasma</code>和<code>LXQt</code>桌面环境推荐的显示管理器。
+</li>
+<li>
+<a
+target="_blank" rel="noopener" href="https://archlinux.org/packages/?name=sddm-kcm">sddm-kcm</a><sup>包</sup>
+软件包(包含在<code>plasma</code>包组
+用户组)提供了一个图形用户界面以在<code>Plasma</code>系统设置中配置<code>SDDM</code>。
+</li>
+<li>
+<a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/SDDM">SDDM-ArchWiki</a>
+</li>
+</ul>
+</div></div><div class="tab-pane" id="安装桌面环境-2"><figure class="highlight sh"><figcaption><span>安装Gnome3</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gnome gdm wqy-microhei</span><br><span class="line">sudo <span class="built_in">echo</span> LANG=zh_CN.UTF-8 &gt; /etc/locale.conf</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> gdm</span><br></pre></td></tr></table></figure></div></div></div>
+<h2 id="安装nvidia显卡">安装Nvidia显卡</h2>
+<h3 id="安装显卡">安装显卡</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S  dkms  nvidia-dkms nvidia-utils glxgears</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意：在我安装完ArchLinux后，原本按nvidia官方的方法配置了显卡，但是发现系统启动后不能正常加载模块，在2024-01-01升级完系统后，更是无法启动系统，这让我误以为滚挂系统但问题绝对不会是nvidia官方显卡的使用方式，但是排查下来发现问题确实还真是它。在没有足够时间研究这个问题的时候，我决定安装<code>Endeavour</code>，结果发现表现良好！于是直接借用了<code>Endeavour</code>的配置方式，使用<code>dkms</code>的方式使用<code>nvidia</code>,
+详细技术请参考：<a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/DKMS">DKMS</a>
+。<code>glxgears</code>命令会出现一个转动的齿轮，用来测试独立显卡是否工作。经测试均正常工作。此命令没有实质性作用，测试完成后可以删除。</p>
+</div>
+<h2 id="安装电源管理软件">安装电源管理软件</h2>
+<p><label style="color:red">power-profiles-daemon与tlp是冲突的，目前在我的ThinkPad-T490上测试TLP表现更佳，请根据自己的情况择优选取，但更倾向于推荐TLP。</label></p>
+<h3 id="endeavour的默认电源管理">Endeavour的默认电源管理</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S power-profiles-daemon</span><br></pre></td></tr></table></figure>
+<h3 id="高级电源管理工具tlp">高级电源管理工具TLP</h3>
+<p>对于笔记本电脑而而言，需要安装<code>TLP</code>，否则会出现电源消耗过大，风扇逛转，睡眠或休眠后无法唤醒等问题，特别是睡眠无法唤醒问题会严重影响使用体验！下面根据<a
+target="_blank" rel="noopener" href="https://linrunner.de/tlp/index.html">TLP官网</a>记录具体操作步骤：</p>
+<ol type="1">
+<li><p>安装软件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S tlp tlp-rdw smartmontools</span><br><span class="line">paru --skipreview --noconfirm -S tp_smapi-dkms</span><br></pre></td></tr></table></figure></p></li>
+<li><p>启动服务 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable tlp.service</span><br><span class="line">sudo systemctl enable NetworkManager-dispatcher.service</span><br></pre></td></tr></table></figure></p></li>
+<li><p>屏蔽与<code>TLP</code>冲突的服务 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl mask systemd-rfkill.service systemd-rfkill.socket</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<div class="note info"><p>ThinkPads only: External Kernel Modules<code>tp_smapi</code>,
+显示<code>tlp-stat</code>中的<code>S.M.A.R.T</code>数据<code>smartmontools</code>.
+在2024年01月04日发现系统又一次提示登录模块错误，于是判断为这个外加的<code>tp_smapi</code>,
+本想直接删除这个模块，但是使用<code>paru</code>找到了其<code>dkms</code>版本，于是通过<code>paru</code>安装了<code>tp_smapi-dkms</code>,
+重启后发现不再有模块登录失败的提示。</p>
+</div>
+<h2 id="thinkpad-t490-识别m2.-2248固态硬盘">ThinkPad-T490 识别M2.
+2248固态硬盘</h2>
+<p>在安装好<code>TLP</code>之后解决了<code>ArchLinux</code>无法从睡眠中唤醒的问题，意外的部分解决了<code>M2. 2248</code>固态硬盘的识别问题。说其部分解决，因为系统正常启动后并不识别这个外加于<code>WWAN</code>口上的固态硬盘，其在睡眠后再唤醒，文件管理器<code>Dolphin</code>左侧就可以识别出此硬盘。在<code>Windows</code>下启动后就是识别的，而在<code>Linux</code>下部分的识别也是一大进步。</p>
+<p>关于这个问题，或许是系统启动机制导致的，<code>Linux</code>启动时会扫描硬盘识别硬件，但是这个<code>WWAN</code>口本是一个无线网卡槽，所以不是标准设计，系统就没有识别。但是，睡眠后再唤醒，这期间电脑肯定又触发了某一个操作，此操作使得系统识别了这个<code>M2. 2248</code>固态硬盘，只是目前我还没有确定是哪一个操作，如果把这个操作添加到开机启动中，那么这个问题也就完全解决了。当前时间<label style="color:gold">2023-12-14
+22:06</label>, 先记录下这个问题，待后面研究透后，再来修改。</p>
+<h2 id="安装蓝牙服务">安装蓝牙服务</h2>
+<h3 id="kde-plasma5-配置bluetooth">KDE-Plasma5 配置BlueTooth</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed --noconfirm bluez bluez-utils pipewire-pulse bluedevil</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br><span class="line">sudo systemctl start  bluetooth.service</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>以前的教程中安装的<code>pulseaudio-bluetooth</code>与现在<code>pipewire-pulse</code>冲突，但是当前的<code>pipewire-pulse</code>是自动安装上的，所以从依赖角度讲它是最新的，因此不准备删除，经测试确实效果很好。</p>
+</div>
+<h3 id="gnome3-配置bluetooth">Gnome3 配置BlueTooth</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> bluetooth.service</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>上述命令是启动蓝牙服务，<code>archlinux</code>
+默认不启用蓝牙服务。然后修改蓝牙配置文件<code>/etc/bluetooth/main.conf</code>，找到<code>AutoEnable=true</code>
+取消注释，使其默认启动蓝牙服务。</p>
+</div>
+<h2
+id="安装fwupd升级系统固件危险操作">安装<code>fwupd</code>升级系统固件(<i class="fa fa-exclamation-triangle" style="font-size:24px;color:red"></i><label style="color:red">危险操作</label>)</h2>
+<p><label style="color:red">非专业人士禁止操作BIOS升级！！</label>
+ThinkPad
+可以用<code>fwupd</code>来更新固件，如果您的电脑可以正常工作，请勿执行此操作。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fwupd</span><br><span class="line">sudo fwupdmgr get-updates</span><br><span class="line">sudo fwupdmgr update</span><br></pre></td></tr></table></figure>
+<p>上述第一行是安装软件<code>fwupd</code>,
+第二行查看是否存在更新，如果存在更新，则通过第三行的命令来更新固件，注意更新固件时请保持电脑连接电源。</p>
+<div class="note warning"><p>2023年12月29日,
+我执行了固件升级命令<code>sudo fwupdmgr update</code>, 然后我的Thinkpad
+T490
+就更新了固件，然后直接导致了电脑再次无法唤醒睡眠！同时半解决状态的2242固态硬盘变成睡眠也无法识别出来的无法解决状态。重启电脑后直接进入到了Windows11,
+在Windows11下安装Lenovo官方<a
+target="_blank" rel="noopener" href="https://think.lenovo.com.cn/support/driver/driverdetail.aspx?DEditid=100457">ThinkVantage</a>,
+然后自动检测后升级相应的BIOS组件后终于恢复了睡眠唤醒。经过这件事情，想告诫同学，如果BIOS工作正常，非必要不升级，如果要升级也请切换到Windows下使用官的固件升级软件处理。</p>
+</div>
+<h3 id="退出换根并重启">退出换根并重启</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<p>重新启动后拔掉<code>U盘</code>完成安装。</p>
+<hr />
+<center>
+<i class="fa fa-angle-double-down" style="font-size:48px;color:red"></i><font color="green" size="8" >ArchLinux配置流程</font>
+</center>
+<hr />
+<h2 id="基础设置">基础设置</h2>
+<h3 id="配置国内镜像源">配置国内镜像源</h3>
+<p>在安装阶段我们已经配置了镜像源，但那是在<code>Live</code>系统上做的配置，为了方便安装系统和软件。
+安装好的<code>ArchLinux</code>默认镜像源也是由安装阶段所设置的，刚刚安装的镜像与<code>Live</code>系统不
+一样，它不包括自动选择镜像的程序<code>reflector</code>,
+它是一个<code>Python</code>编写的脚本，会自动从
+https://archlinux.org/mirrors/status/
+上获取镜像地址，可以通过参数筛选出自己需要的镜像地址。为了方便自己设置，需要先安装一下，然后切换到自己想要的源就可以了。</p>
+<figure class="highlight sh"><figcaption><span>切换为国内最快的12个ArchLinux源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S reflector</span><br><span class="line">sudo reflector --verbose -c China --latest 12 --<span class="built_in">sort</span> rate --threads 100 --save /etc/pacman.d/mirrorlist</span><br><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
+<h3 id="配置国内cn源">配置国内CN源</h3>
+<div class="note info"><p>Arch Linux 中文社区仓库是由 Arch Linux
+中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。</p>
+</div>
+<ol type="1">
+<li><p>在 <code>/etc/pacman.conf</code> 文件末尾添加以下两行
+<figure class="highlight sh"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装 <code>archlinuxcn-keyring</code> 包以导入
+<code>GPG key</code> <figure class="highlight sh"><figcaption><span>安装archlinuxcn-keyring</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装 <code>archlinuxcn-mirrorlist-git</code>
+包可以获得一份镜像列表 <figure class="highlight sh"><figcaption><span>安装archlinuxcn-mirrorlist-git</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-mirrorlist-git</span><br></pre></td></tr></table></figure>
+安装完成后，会生成文件<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>,
+其包含最新的国内镜像。</p></li>
+<li><p>在 pacman.conf 中直接引入<code>archlinuxcn-mirrorlist</code>
+<figure class="highlight sh"><figcaption><span>/etc/pacman.conf末尾追加,同时注释掉Server</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line"><span class="comment">#Server = https://repo.archlinuxcn.org/$arch</span></span><br><span class="line">Include = /etc/pacman.d/archlinuxcn-mirrorlist</span><br></pre></td></tr></table></figure></p></li>
+<li><p>编辑<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>文件，去掉要引用的源前面的注释符即可。</p></li>
+</ol>
+<h3 id="配置arch4edu源">配置arch4edu源</h3>
+<div class="note info"><p><code>Arch4edu</code>是面向高校用户推出的非官方软件仓库，支持<code>Arch Linux</code>
+和 <code>Arch Linux ARM</code>，
+主要包含高校用户常用的科研、教学及开发软件。</p>
+</div>
+<ol type="1">
+<li><p>导入 GPG key <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-key --recv-keys 7931B6D628C8D3BA</span><br><span class="line">sudo pacman-key --finger 7931B6D628C8D3BA</span><br><span class="line">sudo pacman-key --lsign-key 7931B6D628C8D3BA</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在<code>/etc/pacman.conf</code>文件末尾添加以下内容
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[arch4edu]</span><br><span class="line">Server = https://mirrors.cernet.edu.cn/arch4edu/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure> <div class="note info"><p>上述镜像源是<a
+target="_blank" rel="noopener" href="https://help.mirrors.cernet.edu.cn/arch4edu/"><code>CERNET</code>-校园网联合镜像站（mirrorz-302智能选择）</a>,
+由于他的自动选择属性以及使用<code>sudo</code>的安全属性，所以我设置了这个镜像站点。</p>
+</div></p></li>
+<li><p>安装<code>pkgstats</code>帮助了解我们维护包的均势。
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S pkgstats</span><br></pre></td></tr></table></figure></p></li>
+<li><p>其他<code>arch4edu</code>镜像：<a
+target="_blank" rel="noopener" href="https://github.com/arch4edu/mirrorlist/blob/master/mirrorlist.arch4edu">arch4edu-mirrorlist</a></p></li>
+</ol>
+<details>
+<summary>
+<label style="color:blue">arch4edu详情,对于搞科研的您相当重要！</label>
+</summary>
+<p>Arch4edu 一个面向全球高校用户的社区源,
+初衷是实验室的服务器都有装同一批软件的需求，后来干脆就做成软件源了. 支持
+Arch Linux 和 Arch Linux ARM，
+主要包含高校用户常用的科研、教学及开发软件。现在arch4edu主要涵盖以下方向的包:</p>
+<ul>
+<li>机器学习工具：tensorflow, caffe, torch等等</li>
+<li>IDE及编辑器：android-studio, pycharm, vs code, sublime等等</li>
+<li>Android开发：android-studio, android-sdk, android-ndk等等</li>
+<li>语音信号处理：kaldi, cmusphinx, opensmile等等</li>
+<li>图像处理：opencv-git</li>
+<li>通用：anaconda, zotero, atlas-lapack, openblas等等</li>
+</ul>
+共104个包。理论上说至少大学生常用的，不限于上述方向的包都可以加，欢迎大家发<code>Package Request</code>.
+现在的更新频率是日更。由于结构是仿照archlinuxcn搭建的，所以git版本的包会及时更新。
+</details>
+<h3 id="安装中文字体">安装中文字体</h3>
+<p>安装windows10下拷贝来的fonts字体、founder及adobe
+等到系统的指定目录<code>/usr/share/fonts/</code>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> ./Fonts/Adobe/* /usr/share/fonts/Adobe/</span><br><span class="line">sudo <span class="built_in">cp</span> ./Fonts/windows10/ /usr/share/fonts/windows10/</span><br><span class="line">sudo <span class="built_in">cp</span> ./Fonts/founder_GBK/ /usr/share/fonts/Founder/</span><br><span class="line">sudo fc-cache -vf</span><br></pre></td></tr></table></figure>
+<h3 id="设置系统为中文">设置系统为中文</h3>
+<p>要设置整个系统使用的区域设置，需要在 <code>/etc/locale.conf</code>
+中写入 <code>LANG</code> 变量，以下的 <code>zh_CN.UTF-8</code> 应为
+<code>/etc/locale.gen</code> 中某个未注释条目的第一列：</p>
+<figure class="highlight sh"><figcaption><span>/etc/locale.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#LANG=&quot;C.UTF-8&quot;</span></span><br><span class="line">LANG=zh_CN.UTF-8</span><br></pre></td></tr></table></figure>
+<p>由于前面已经配置好了语言，据<a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Locale#Gnome-terminal_/_rxvt-unicode_不支持_UTF-8">Local-ArchLinux</a>,
+当做完以上配置，同时重起系统后<code>设置</code>→<code>区域和语言</code>→<code>语言</code>设置成<code>简体中文</code>,
+后系统仍然不能完全汉化，对于<code>KDE Plasma</code>
+则<label style="color:red">删除~/.config/plasma-localerc</label>,
+这一点本人测试成功。</p>
+<h3
+id="全局配置git为github.com镜像">全局配置<code>git</code>为<code>github.com</code>镜像</h3>
+<ol type="1">
+<li><p>安装<code>git</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S git curl</span><br></pre></td></tr></table></figure></p></li>
+<li><p>修改全局配置文件<code>~/.gitconfig</code> <figure class="highlight sh"><figcaption><span>~/.gitconfig</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">	email = YourEmail</span><br><span class="line">	name = YourName</span><br><span class="line">[url <span class="string">&quot;https://hub.yzuu.cf/&quot;</span>]</span><br><span class="line">; [url <span class="string">&quot;https://hub.njuu.cf/&quot;</span>]</span><br><span class="line">; [url <span class="string">&quot;https://hub.nuaa.cf/&quot;</span>]</span><br><span class="line">; [url <span class="string">&quot;https://kkgithub.com/&quot;</span>]</span><br><span class="line">; [url <span class="string">&quot;https://gitclone.com/github.com/&quot;</span>]</span><br><span class="line">	insteadOf = https://github.com/</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<div class="note warning"><p>注意：此配置全局<code>git</code>为<code>github.com</code>镜像是最简单的一劳永逸的方法，稍微麻烦但更加有效的方法参考：<a
+href="/2023/10/11/使用Git下载Github资源的有效方法">使用Git下载Github资源的有效方法</a></p>
+</div>
+<h3 id="安装paru或yay">安装<code>paru</code>或<code>yay</code></h3>
+<h4
+id="安装paru或yay-最新的paru表现更好建议安装">安装<code>paru</code>或<code>yay</code>,
+最新的<code>paru</code>表现更好,建议安装。</h4>
+<div class="tabs" id="安装`aur`助手"><ul class="nav-tabs"><li class="tab active"><a href="#安装`aur`助手-1">paru</a></li><li class="tab"><a href="#安装`aur`助手-2">yay</a></li></ul><div class="tab-content"><div class="tab-pane active" id="安装`aur`助手-1"><ol type="1">
+<li>安装<code>paru</code></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S paru</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>使用<code>paru</code>时跳过审阅并自动确认安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview --needed --noconfirm -S foobar</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>关闭默认审阅流程的方法: 在配置文件<code>/etc/paru.conf</code>
+内增加<code>SkipReview</code>。参考 <a
+href="/2023/12/11/Paru默认关闭审阅流程">Paru默认关闭审阅流程</a></li>
+</ol></div><div class="tab-pane" id="安装`aur`助手-2"><ul>
+<li>在<code>archlinuxcn</code>源安装</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yay</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编译安装</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S --needed git base-devel</span><br><span class="line">git <span class="built_in">clone</span> https://aur.archlinux.org/yay-bin.git</span><br><span class="line"><span class="built_in">cd</span> yay-bin</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+<ul>
+<li>源码安装</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://aur.archlinux.org/yay.git</span><br><span class="line"><span class="built_in">cd</span> yay</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+<p>在2022年7月20日安装ArchLinux时发现如此安装不成功，解决方案参考：<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/439805266">yay安装失败的解决方案</a>。使用go语言换源解决，临时换源解决方案代码如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ go <span class="built_in">env</span> -w GO111MODULE=on</span><br><span class="line">$ go <span class="built_in">env</span> -w GOPROXY=https://goproxy.cn,direct</span><br><span class="line">$ <span class="built_in">export</span> GO111MODULE=on</span><br><span class="line">$ <span class="built_in">export</span> GOPROXY=https://goproxy.cn</span><br><span class="line">$ makepkg -si</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></div></div>
+<h4
+id="配置paru和yay多线程下载">配置<code>paru</code>和<code>yay</code>多线程下载</h4>
+<p>使用本人定制的<code>axel</code>多线程下载工具可以提高下载速度，获得更佳的使用体验:</p>
+<figure class="highlight sh"><figcaption><span>配置Paru和yay多线程下载</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -o ParuAxel.7z https://gitlab.com/fengzhenhua/zipconf/-/raw/main/ParuAxel.7z\?inline\=<span class="literal">false</span></span><br><span class="line">unar ParuAxel.7z</span><br><span class="line"><span class="built_in">cd</span> ./ParuAxel</span><br><span class="line"><span class="built_in">chmod</span> +x install.sh</span><br><span class="line">./install.sh</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">rm</span> -rf ParuAxel.7z ParuAxel</span><br></pre></td></tr></table></figure>
+<h4 id="paru-高级用户配置">Paru 高级用户配置</h4>
+<p><strong>基本命令</strong></p>
+<ul>
+<li>paru <用户输入>：搜索并安装“用户输入”</li>
+<li>paru -：paru -Syu 的别名</li>
+<li>paru -Sua：仅升级 AUR 包。</li>
+<li>paru -Qua：打印可用的 AUR 更新</li>
+<li>paru -Gc <用户输入>：显示“用户输入”的 AUR 评论</li>
+</ul>
+<p><strong>编辑 PKGBUILD （对于高级用户）</strong></p>
+<p>如果你是一个有经验的 Linux 用户，你可以通过 paru 编辑 AUR
+包。要做到这一点，你需要在 paru
+配置文件中启用该功能，并设置你所选择的文件管理器。在此例中，我将使用配置文件中的默认值，即
+vifm 文件管理器。如果你还没有使用过它，你可能需要安装它。</p>
+<ul>
+<li><p>安装<code>vifm</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S vifm</span><br></pre></td></tr></table></figure></p></li>
+<li><p>修改配置文件<code>/etc/paru.conf</code>,取消注释
+<figure class="highlight sh"><figcaption><span>/etc/paru.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[bin]</span><br><span class="line">FileManager = vifm</span><br><span class="line"><span class="comment">#MFlags = --skippgpcheck</span></span><br><span class="line"><span class="comment">#Sudo = doas</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<div class="note warning"><p>系统会提示你审查该软件包→输入 Y 并按下回车→从文件管理器中选择
+PKGBUILD
+→按下回车查看软件包→做出修改。你所做的任何改变都将是永久性的，下次升级软件包时，你的改变将与上游软件包合并。<label style="color:red">对于不懂的用户，请慎用此功能</label>。</p>
+</div>
+<h3 id="配置桌面环境">配置桌面环境</h3>
+<div class="tabs" id="配置桌面环境"><ul class="nav-tabs"><li class="tab active"><a href="#配置桌面环境-1">KDE-Plasma</a></li><li class="tab"><a href="#配置桌面环境-2">Gnome3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="配置桌面环境-1"><p>对于桌面环境的配置，主要是配置<code>MacOS</code>的<code>WhitSur</code>主题，由于已经配置了<code>ArchLinux</code>的<code>CN</code>源和安装了<code>Paru</code>也可以使用<code>Aur</code>所以使用<code>Pacman</code>或<code>Paru</code>来安装皮肤比自行下载手动安装要好。本教程使用<code>Aur</code>源安装：</p>
+<figure class="highlight sh"><figcaption><span>paru安装WhitSur皮肤</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview --needed --noconfirm -S plasma5-themes-whitesur-git</span><br><span class="line">paru --skipreview --needed --noconfirm -S whitesur-icon-theme-git</span><br><span class="line">paru --skipreview --needed --noconfirm -S whitesur-cursor-theme-git</span><br><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/vinceliuice/grub2-themes.git</span><br><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/vinceliuice/WhiteSur-gtk-theme.git</span><br><span class="line"><span class="built_in">chmod</span> +x ./grub2-themes/*.sh</span><br><span class="line"><span class="built_in">chmod</span> +x ./WhiteSur-gtk-theme/*.sh</span><br><span class="line"><span class="built_in">cd</span> ./grub2-themes/</span><br><span class="line">./install.sh -b -t whitesur -i whitesur -s 1080p</span><br><span class="line"><span class="built_in">cd</span> ../WhiteSur-gtk-theme</span><br><span class="line">./tweaks.sh -f </span><br></pre></td></tr></table></figure>
+<div class="note info">
+<p>
+一般安装好后系统自动配置好了，同时如果有更新也可以及时更新。需要做的工作:
+</p>
+<ul>
+<li>
+启用全局主题: <code>系统设置</code>→ <code>外观</code>
+→<code>全局主题</code>→<code>WhitSur</code>(选中桌面和窗口布局)。
+之后系统的桌面就配置成<code>WhitSur</code>主题了，但是桌面背景还是黑色的，说明这几个包设计的不是很完善，这时只要右键设置背景图片就可以了。
+</li>
+<li>
+启用登录屏:
+<code>设置</code>→<code>开机与关机</code>→<code>登录屏幕(SDDM)</code>,
+选择<code>WhitSur</code>
+</li>
+<li>
+配置启动<code>Latte</code>停靠栏:
+在<code>Latte</code>上右键→配置<code>Latte</code>，选中开机启动。然后对应<code>布局编辑器</code>选择<code>WhitSur</code>。
+</li>
+<li>
+配置状态状态栏，安装好主题后状态栏并没有配置好，配置步骤：<code>状态栏上右键</code>
+→<code>编辑模式</code>→<code>更多选项</code> →<code>最大化面板</code>
+,否则状态栏上的内容会显示不出来。
+</li>
+<li>
+配置<code>Fcitx5</code>使用自带<a
+target="_blank" rel="noopener" href="https://github.com/search?q=fcitx5+theme&amp;type=Repositories">皮肤</a>，完成第一步时其实就可以了。如果第一步没有<code>输入法面板</code>,
+那需要添加<code>系统托盘</code>,此时显示就正常了。参考<a
+href="/2023/12/12/KDE下设置Fcitx5">KDE下设置Fcitx5</a>
+</li>
+<li>
+手动安装<code>WhitSur</code>主题请参考: <a
+href="/2023/10/12/ArchLinux安装Plasma5">ArchLinux安装Plasma5</a>
+</li>
+<li>
+由于<code>Grub</code>主题使用<code>paru</code>安装时不能自动配置，所以改成了手动安装。而<code>WhiteSur-gtk-theme</code>仅用来设置<code>firefox</code>主题，需要<label style="color:red">提前关闭Firefox</label>再安装主题。
+</li>
+</ul>
+</div></div><div class="tab-pane" id="配置桌面环境-2"><ol type="1">
+<li>安装浏览器插件</li>
+</ol>
+<p>在安装<code>gnome</code>插件前，需要先安装浏览器插件才能通过<a
+target="_blank" rel="noopener" href="https://extensions.gnome.org/">https://extensions.gnome.org</a>
+安装插件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S chrome-gnome-shell</span><br></pre></td></tr></table></figure>
+<p>2022年11月01日
+升级完系统发现插件<code>gnome-shell-hidetopbar-git</code>不能正常工作了，于是打开安篇之前写好的文档，计划从网页安装插件。但是执行上述命令时发现找不到了！！然后通过
+<a
+target="_blank" rel="noopener" href="https://wiki.gnome.org/action/show/Projects/GnomeShellIntegration/Installation?action=show&amp;redirect=Projects%2FGnomeShellIntegrationForChrome%2FInstallation">GNOME
+Shell browser integration Installation Guide</a>
+找到答案。因为这个插件更名了，于是执行如下命令解决问题：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S gnome-browser-connector</span><br></pre></td></tr></table></figure>
+<p>或者使用命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://aur.archlinux.org/gnome-browser-connector.git</span><br><span class="line">$ <span class="built_in">cd</span> gnome-browser-connector</span><br><span class="line">$ makepkg -si</span><br></pre></td></tr></table></figure>
+<p>之后安装插件 <code>dash-to-dock</code> 和 <code>hide-top-bar</code>
+基本完成操作。</p>
+<ol start="2" type="1">
+<li>安装<code>Gnome</code> 主题</li>
+</ol>
+<figure class="highlight bash">
+<figcaption>
+<span>仿苹果主题：Shell、图标、鼠标、Grub、动态壁纸</span>
+</figcaption>
+<table>
+<tr>
+<td class="gutter">
+<pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+</td>
+<td class="code">
+<pre><span class="line">yay -S whitesur-gtk-theme-git  whitesur-icon-theme-git cursor-theme-macos-big-sur</span><br><span class="line">yay -S dynamic-wallpaper-catalina-gnome-timed-git</span><br><span class="line">yay -S dynamic-wallpaper-mojave-gnome-timed-git</span><br><span class="line">git <span class="built_in">clone</span> git@gitee_key_one:fengzhenhua/monterey-grub-theme</span><br><span class="line">sudo ./install.sh</span><br></pre>
+</td>
+</tr>
+</table>
+</figure>
+<div class="note warning">
+<p>
+注意此安装Grub主题必须切换到root权限。如果更像苹果系统则，请再安装图标插件
+<code>Logo Menu</code>
+，这样子左上角的<code>Archlinux</code>标志将会换成<code>Mac</code>标志，同时增加了对应的菜单。
+</p>
+</div>
+<ol start="3" type="1">
+<li>Dash-To-Dock 升级Gnome 42-</li>
+</ol>
+<p>在我使用Manjaro作为主力办公的时候，于2021年7月7日升级时发现此拓展失效，通过浏览器无法安装。同时于2022年04月10日升级ArchLinux后发现此拓展在Gnome42版本下失效，于今日在<a
+target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/307/dash-to-dock/">dash-to-dock</a>的用户评论中发现了解决方案<a
+target="_blank" rel="noopener" href="https://github.com/tau-OS/dash-to-dock">https://github.com/tau-OS/dash-to-dock</a>,于是通过gitee克隆后顺利安装，由于此拓展的重要性，所以专门记录其手动安装。</p>
+<ul>
+<li>将<a
+target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/dash-to-dock/">插件dash-to-dock</a>
+直接clone到本地</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@gitee_key_one:fengzhenhua/dash-to-dock.git</span><br><span class="line">$ <span class="built_in">cd</span> ./dash-to-dock</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装编译插件所需的软件及设置环境变量</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pacman -S sassc</span></span><br><span class="line"><span class="comment"># export SASS=sassc</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>编译安装插件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># exit</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/下载/dash-to-dock</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="关闭文件索引">关闭文件索引</h3>
+<div class="note warning"><p>由于文件索引会消耗大量的资源，这就导致了电脑温度过高，风扇逛转不停，而现实的使用过程中对于搜索的要求并不高，一般人都能够合理的安排自己的文件位置。于是关闭这项服务可以更好的发挥计算机性能，总体来讲利大于弊。</p>
+</div>
+<h4 id="关闭kde-plasma5-文件索引">关闭<code>KDE Plasma5</code>
+文件索引！</h4>
+<ol type="1">
+<li><p>使用命令关闭 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">balooctl <span class="built_in">disable</span></span><br><span class="line">balooctl <span class="built_in">suspend</span></span><br><span class="line">balooctl status</span><br></pre></td></tr></table></figure></p></li>
+<li><p>通过图形界面关闭：点击<code>系统设置</code>→<code>搜索</code>→<code>文件搜索</code>→<code>去掉启用文件索引</code>前的对号→右下角<code>应用</code></p></li>
+</ol>
+<h4 id="关闭gnome3文件索引">关闭<code>Gnome3</code>文件索引</h4>
+<ol type="1">
+<li><p>使用<code>gsettings</code>禁用<code>tracker-miner</code>应用
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2</span><br><span class="line">gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false</span><br></pre></td></tr></table></figure> 同时删除旧数据<code>tracker reset --hard</code></p></li>
+<li><p>或者禁止<code>tracker-*</code>软件启动 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i &quot;s/X-GNOME-Autostart-enabled=true/X-GNOME-Autostart-enabled=false/g&quot; /etc/xdg/autostart/tracker-*.desktop</span><br><span class="line">tracker reset --hard</span><br><span class="line">tracker reset --hard</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="删除多余的efi启动项">删除多余的<code>EFI</code>启动项</h3>
+<p>有时候重装系统的时候为了保留原来的启动项而不对<code>EFI</code>分区重新格式化，这导致了每安装一次系统都会在<code>EFI</code>分区留下一下之前的启动项。这时为了纯净可以删除之前的启动项，不过一定要仔细判别，不要删错了文件。文件目录在</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/boot/efi/EFI</span><br></pre></td></tr></table></figure>
+<h3 id="修改启动选项grub">修改启动选项<code>grub</code></h3>
+<figure class="highlight bash"><figcaption><span>/boot/grub/gurb.cfg</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># DO NOT EDIT THIS FILE</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># It is automatically generated by grub-mkconfig using templates</span></span><br><span class="line"><span class="comment"># from /etc/grub.d and settings from /etc/default/grub</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/00_header ###</span></span><br><span class="line">insmod part_gpt</span><br><span class="line">insmod part_msdos</span><br><span class="line"><span class="keyword">if</span> [ -s <span class="variable">$prefix</span>/grubenv ]; <span class="keyword">then</span></span><br><span class="line">  load_env</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;next_entry&#125;</span>&quot;</span> ] ; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">set</span> default=<span class="string">&quot;<span class="variable">$&#123;next_entry&#125;</span>&quot;</span></span><br><span class="line">   <span class="built_in">set</span> next_entry=</span><br><span class="line">   save_env next_entry</span><br><span class="line">   <span class="built_in">set</span> boot_once=<span class="literal">true</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="built_in">set</span> default=<span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ x<span class="string">&quot;<span class="variable">$&#123;feature_menuentry_id&#125;</span>&quot;</span> = xy ]; <span class="keyword">then</span></span><br><span class="line">  menuentry_id_option=<span class="string">&quot;--id&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  menuentry_id_option=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> menuentry_id_option</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;prev_saved_entry&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">set</span> saved_entry=<span class="string">&quot;<span class="variable">$&#123;prev_saved_entry&#125;</span>&quot;</span></span><br><span class="line">  save_env saved_entry</span><br><span class="line">  <span class="built_in">set</span> prev_saved_entry=</span><br><span class="line">  save_env prev_saved_entry</span><br><span class="line">  <span class="built_in">set</span> boot_once=<span class="literal">true</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> savedefault &#123;</span><br><span class="line">  <span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$&#123;boot_once&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    saved_entry=<span class="string">&quot;<span class="variable">$&#123;chosen&#125;</span>&quot;</span></span><br><span class="line">    save_env saved_entry</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> load_video &#123;</span><br><span class="line">  <span class="keyword">if</span> [ x<span class="variable">$feature_all_video_module</span> = xy ]; <span class="keyword">then</span></span><br><span class="line">    insmod all_video</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    insmod efi_gop</span><br><span class="line">    insmod efi_uga</span><br><span class="line">    insmod ieee1275_fb</span><br><span class="line">    insmod vbe</span><br><span class="line">    insmod vga</span><br><span class="line">    insmod video_bochs</span><br><span class="line">    insmod video_cirrus</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ x<span class="variable">$feature_default_font_path</span> = xy ] ; <span class="keyword">then</span></span><br><span class="line">   font=unicode</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">insmod part_gpt</span><br><span class="line">insmod ext2</span><br><span class="line">search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 143fbcc6-9ae2-4a88-ad96-12c7f3de3d95</span><br><span class="line">    font=<span class="string">&quot;/usr/share/grub/unicode.pf2&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> loadfont <span class="variable">$font</span> ; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">set</span> gfxmode=auto</span><br><span class="line">  load_video</span><br><span class="line">  insmod gfxterm</span><br><span class="line">  <span class="built_in">set</span> locale_dir=<span class="variable">$prefix</span>/locale</span><br><span class="line">  <span class="built_in">set</span> lang=zh_CN</span><br><span class="line">  insmod gettext</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">terminal_input console</span><br><span class="line">terminal_output gfxterm</span><br><span class="line">insmod part_gpt</span><br><span class="line">insmod ext2</span><br><span class="line">search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 143fbcc6-9ae2-4a88-ad96-12c7f3de3d95</span><br><span class="line">insmod gfxmenu</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/Poppins-14.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/Poppins-16.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/Poppins-18.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/Poppins-20.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/Poppins-48.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/terminus-12.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/terminus-14.pf2</span><br><span class="line">loadfont (<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/terminus-16.pf2</span><br><span class="line">insmod png</span><br><span class="line"><span class="built_in">set</span> theme=(<span class="variable">$root</span>)/usr/share/grub/themes/monterey-grub-theme/theme.txt</span><br><span class="line"><span class="built_in">export</span> theme</span><br><span class="line"><span class="keyword">if</span> [ x<span class="variable">$feature_timeout_style</span> = xy ] ; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">set</span> timeout_style=menu</span><br><span class="line">  <span class="built_in">set</span> <span class="built_in">timeout</span>=5</span><br><span class="line"><span class="comment"># Fallback normal timeout code in case the timeout_style feature is</span></span><br><span class="line"><span class="comment"># unavailable.</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">set</span> <span class="built_in">timeout</span>=5</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment">### END /etc/grub.d/00_header ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/10_linux ###</span></span><br><span class="line">menuentry <span class="string">&#x27;Arch Linux&#x27;</span> --class <span class="built_in">arch</span> --class gnu-linux --class gnu --class os <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;gnulinux-simple-143fbcc6-9ae2-4a88-ad96-12c7f3de3d95&#x27;</span> &#123;</span><br><span class="line">	load_video</span><br><span class="line">	<span class="built_in">set</span> gfxpayload=keep</span><br><span class="line">	insmod gzio</span><br><span class="line">	insmod part_gpt</span><br><span class="line">	insmod ext2</span><br><span class="line">	search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 143fbcc6-9ae2-4a88-ad96-12c7f3de3d95</span><br><span class="line">	<span class="built_in">echo</span>	<span class="string">&#x27;载入 Linux linux ...&#x27;</span></span><br><span class="line">	linux	/boot/vmlinuz-linux root=UUID=143fbcc6-9ae2-4a88-ad96-12c7f3de3d95 rw  loglevel=3 quiet</span><br><span class="line">	<span class="built_in">echo</span>	<span class="string">&#x27;载入初始化内存盘...&#x27;</span></span><br><span class="line">	initrd	/boot/initramfs-linux.img</span><br><span class="line">&#125;</span><br><span class="line">submenu <span class="string">&#x27;Arch Linux 的高级选项&#x27;</span> <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;gnulinux-advanced-143fbcc6-9ae2-4a88-ad96-12c7f3de3d95&#x27;</span> &#123;</span><br><span class="line">	menuentry <span class="string">&#x27;Arch Linux，Linux linux&#x27;</span> --class <span class="built_in">arch</span> --class gnu-linux --class gnu --class os <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;gnulinux-linux-advanced-143fbcc6-9ae2-4a88-ad96-12c7f3de3d95&#x27;</span> &#123;</span><br><span class="line">		load_video</span><br><span class="line">		<span class="built_in">set</span> gfxpayload=keep</span><br><span class="line">		insmod gzio</span><br><span class="line">		insmod part_gpt</span><br><span class="line">		insmod ext2</span><br><span class="line">		search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 143fbcc6-9ae2-4a88-ad96-12c7f3de3d95</span><br><span class="line">		<span class="built_in">echo</span>	<span class="string">&#x27;载入 Linux linux ...&#x27;</span></span><br><span class="line">		linux	/boot/vmlinuz-linux root=UUID=143fbcc6-9ae2-4a88-ad96-12c7f3de3d95 rw  loglevel=3 quiet</span><br><span class="line">		<span class="built_in">echo</span>	<span class="string">&#x27;载入初始化内存盘...&#x27;</span></span><br><span class="line">		initrd	/boot/initramfs-linux.img</span><br><span class="line">	&#125;</span><br><span class="line">	menuentry <span class="string">&#x27;Arch Linux, with Linux linux (fallback initramfs)&#x27;</span> --class <span class="built_in">arch</span> --class gnu-linux --class gnu --class os <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;gnulinux-linux-fallback-143fbcc6-9ae2-4a88-ad96-12c7f3de3d95&#x27;</span> &#123;</span><br><span class="line">		load_video</span><br><span class="line">		<span class="built_in">set</span> gfxpayload=keep</span><br><span class="line">		insmod gzio</span><br><span class="line">		insmod part_gpt</span><br><span class="line">		insmod ext2</span><br><span class="line">		search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 143fbcc6-9ae2-4a88-ad96-12c7f3de3d95</span><br><span class="line">		<span class="built_in">echo</span>	<span class="string">&#x27;载入 Linux linux ...&#x27;</span></span><br><span class="line">		linux	/boot/vmlinuz-linux root=UUID=143fbcc6-9ae2-4a88-ad96-12c7f3de3d95 rw  loglevel=3 quiet</span><br><span class="line">		<span class="built_in">echo</span>	<span class="string">&#x27;载入初始化内存盘...&#x27;</span></span><br><span class="line">		initrd	/boot/initramfs-linux-fallback.img</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">### END /etc/grub.d/10_linux ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/20_linux_xen ###</span></span><br><span class="line"><span class="comment">### END /etc/grub.d/20_linux_xen ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/30_os-prober ###</span></span><br><span class="line">menuentry <span class="string">&#x27;Windows Boot Manager (在 /dev/nvme0n1p1)&#x27;</span> --class windows --class os <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;osprober-efi-2B71-22FB&#x27;</span> &#123;</span><br><span class="line">	insmod part_gpt</span><br><span class="line">	insmod fat</span><br><span class="line">	search --no-floppy --fs-uuid --<span class="built_in">set</span>=root 2B71-22FB</span><br><span class="line">	chainloader /EFI/Microsoft/Boot/bootmgfw.efi</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">### END /etc/grub.d/30_os-prober ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/30_uefi-firmware ###</span></span><br><span class="line">menuentry <span class="string">&#x27;UEFI Firmware Settings&#x27;</span> <span class="variable">$menuentry_id_option</span> <span class="string">&#x27;uefi-firmware&#x27;</span> &#123;</span><br><span class="line">	fwsetup</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">### END /etc/grub.d/30_uefi-firmware ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/40_custom ###</span></span><br><span class="line"><span class="comment"># This file provides an easy way to add custom menu entries.  Simply type the</span></span><br><span class="line"><span class="comment"># menu entries you want to add after this comment.  Be careful not to change</span></span><br><span class="line"><span class="comment"># the &#x27;exec tail&#x27; line above.</span></span><br><span class="line"><span class="comment">### END /etc/grub.d/40_custom ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/41_custom ###</span></span><br><span class="line"><span class="keyword">if</span> [ -f  <span class="variable">$&#123;config_directory&#125;</span>/custom.cfg ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="variable">$&#123;config_directory&#125;</span>/custom.cfg</span><br><span class="line"><span class="keyword">elif</span> [ -z <span class="string">&quot;<span class="variable">$&#123;config_directory&#125;</span>&quot;</span> -a -f  <span class="variable">$prefix</span>/custom.cfg ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="variable">$prefix</span>/custom.cfg</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment">### END /etc/grub.d/41_custom ###</span></span><br></pre></td></tr></table></figure>
+<h3
+id="linux下efibootmgr的使用删除uefi主板多余的启动项">Linux下EFIBOOTMGR的使用，删除UEFI主板多余的启动项</h3>
+<p>用uefi装过几次系统后，uefi启动项就会多出好多启动项。这东西格硬盘也不好用，我们借助efibootmgr可以编辑启动项，事实上我的电脑正是这样操作的：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># efibootmgr</span></span><br><span class="line">BootCurrent: 0008</span><br><span class="line">Timeout: 5 seconds</span><br><span class="line">BootOrder: 0008,0007,0006,0004,0005,0000,0001,0002</span><br><span class="line">Boot0000* UEFI KBG40ZNS128G NVMe KIOXIA 128GB 80SPG7BZQ2B1 1</span><br><span class="line">Boot0001* ONBOARD NIC (IPV4)</span><br><span class="line">Boot0002* ONBOARD NIC (IPV6)</span><br><span class="line">Boot0004* Manjaro</span><br><span class="line">Boot0005* Windows Boot Manager</span><br><span class="line">Boot0006* endeavouros</span><br><span class="line">Boot0007* -<span class="built_in">id</span></span><br><span class="line">Boot0008* ArchLinux</span><br></pre></td></tr></table></figure>
+<p>删除一个引导项 <code>Manjaro</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">efibootmgr -b 0004 -B</span><br></pre></td></tr></table></figure>
+<p>添加一个引导项</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#efibootmgr -c -w -L “BootOptionName” -d /dev/sda -p 1 -l \\EFI\\asianux\\elilo.efi</span></span><br></pre></td></tr></table></figure>
+<p>其中-d
+参数后面是系统所在的硬盘设备名称，例如<code>/dev/hda</code>、<code>/dev/hdb</code>
+<code>-p</code> 参数是vfat 分区的分区编号<code>/dev/hda1</code>
+用<code>-p 1</code> <code>/dev/sda2</code> 用<code>-p 2</code>
+<code>-l</code> 参数后面是该引导项指向的efi
+启动文件在该分区上的位置。请注意使用“\”来表示目录的分级。
+例如：<code>/EFI/asianux/elilo.efi</code>
+应写成：<code>\\EFI\\asianux\\elilo.efi</code></p>
+<h2
+id="解决linux和windows时间不一致问题">解决<code>Linux</code>和<code>Windows</code>时间不一致问题</h2>
+<p>日常工作中多数人使用的是<code>Windows</code>,
+当使用<code>Linux</code>作为工作的主力时，安装双系统是一个最佳的选择,但是双系统会导致<code>Linux</code>和<code>Windows</code>时间不一致问题。</p>
+<details>
+<summary>
+<label style="color:blue">具体原因分析</label>
+</summary>
+<p>GMT：Greenwich Mean Time，即格林尼治标准时间，也就是世界时。GMT
+以地球自转为基础的时间计量系统，但由于地球自转不均匀，导致 GMT
+不精确，现在已经不再作为世界标准时间使用。</p>
+<p>UTC：Universal Time Coordinated，即协调世界时。UTC
+是以原子时秒长为基础，在时刻上尽量接近于 GMT 的一种时间计量系统。为确保
+UTC 与 GMT 相差不会超过 0.9 秒，在有需要的情况下会在 UTC
+内加上正或负闰秒。UTC 现在作为世界标准时间使用。</p>
+<p>RTC：Real-Time
+Clock，即实时时钟，在计算机领域作为硬件时钟的简称。</p>
+<p>世界上不同地区所在的时区是不同的，这些时区决定了当地的本地时间。比如北京处于东八区，即北京时间为
+UTC + 8，如果 UTC 时间现在是上午 6 点整，那么北京时间为 14 点整。</p>
+<p>Windows 与 Linux 看待硬件时间的方式不同。Windows
+把电脑的硬件时钟（RTC）看成是本地时间，即 RTC = Local Time，Windows
+会直接显示硬件时间；而 Linux 则是把电脑的硬件时钟看成 UTC 时间，即 RTC =
+UTC，那么 Linux 显示的时间就是硬件时间加上时区。</p>
+</details>
+<h3 id="解决办法">解决办法</h3>
+<p>既然知道了问题原因，我们就知道如何去解决，大概思路分为两种，一是让
+Windows 认为硬件时钟是 UTC 时间，二是让 Linux
+认为硬件时钟是本地时间。</p>
+<div class="tabs" id="解决时间不一致问题"><ul class="nav-tabs"><li class="tab active"><a href="#解决时间不一致问题-1">Windows</a></li><li class="tab"><a href="#解决时间不一致问题-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="解决时间不一致问题-1"><p>以管理员身份打开 「PowerShell」，输入以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+<p>或者打开「注册表编辑器」，定位到
+计算机<code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation</code>
+目录下，新建一个 DWORD 类型，名称为 RealTimeIsUniversal
+的键，并修改键值为 1 即可。</p></div><div class="tab-pane" id="解决时间不一致问题-2"><p>这里大家可以根据自己 Linux
+发行版的方法来修改。我这里给出现在大多数发行版由 timedatectl
+来管理时间的修改方法。</p>
+<p>在终端中，输入以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl set-local-rtc 1 --adjust-system-clock</span><br></pre></td></tr></table></figure></div></div></div>
+<div class="note success"><p>这两种方法中，本人推荐第一种方法，修改 Windows 的时间管理。因为在
+Linux 系统中修改后，输入 timedatectl 命令后，会出现警告，提示你使用 RTC
+时钟会导致一些程序错误；并且 Windows 也在更改时间管理方式为 UTC
+时间。</p>
+</div>
+<h2 id="安装解压缩软件">安装解压缩软件</h2>
+<div class="tabs" id="解压缩"><ul class="nav-tabs"><li class="tab active"><a href="#解压缩-1">KDE-Plasma Ark</a></li><li class="tab"><a href="#解压缩-2">Gnome3 File-Roller</a></li></ul><div class="tab-content"><div class="tab-pane active" id="解压缩-1"><p><code>Ark</code>是<code>KDE</code>桌面环境默认的归档管理器，支持插件设置，允许你创建一个压缩包，查看压缩文件的内容，解压压缩包的内容到你所选定的目录。它能处理多种格式，包括
+tar、gzip、bzip2、zip、rar 和 7z等。 <figure class="highlight sh"><figcaption><span>Install Ark</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ark p7zip-natspec unarchiver lzop lrzip arj zip unzip</span><br></pre></td></tr></table></figure></p></div><div class="tab-pane" id="解压缩-2"><p><code>File Roller</code>是<code>GNOME</code>桌面环境的默认归档管理器，不支持插件设置，允许你创建一个压缩包，查看压缩文件的内容，解压压缩包的内容到你所选定的目录。它能处理多种格式，包括
+tar、gzip、bzip2、zip、rar 和 7z等。 <figure class="highlight sh"><figcaption><span>Install File-Roller</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S file-roller p7zip-natspec unarchiver lzop lrzip arj zip unzip</span><br></pre></td></tr></table></figure></p></div></div></div>
+<details>
+<summary>
+<label style="color:blue">解决解压缩zip文件乱码问题</label>
+</summary>
+<p>在Linux解压缩Windows下考备过来的zip压缩文件时，不仅<code>ark</code>浏览时乱码，实际解压也是乱码。根本原因是编码问题，windows下默认<code>gb2312</code>与linux中默认<code>utf-8</code>不兼容，
+直接原因是Ark中用于zip打开和解压的插件不支持<code>gb2312</code>.
+解决方案为</p>
+<ol type="1">
+<li><p>安装。<code>p7zip-natspec</code> (<code>cn</code>源中就有)
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S p7zip-natspec</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在<code>Ark</code>中禁用<code>libzip</code>插件(该插件优先级高于<code>p7zip</code>):
+<code>Ark</code>菜单→设置→配置<code>Ark</code>→插件→取消<code>Libzip</code>插件对应的复选框→应用。同时应当确保<code>p7zip</code>插件使用中。</p></li>
+<li><p>由于已经安装了<code>unarchiver</code>,
+所以直接使用命令<code>unar</code>解压<code>zip</code>文件也是可以解决文件名乱码问题的，但是前述方法更加方便。</p></li>
+<li><p>其他选择，使用<code>unzip-natspec</code>或<code>unzip-iconv</code>.</p></li>
+</ol>
+</details>
+<h2 id="安装中文输入法fcitx5">安装中文输入法Fcitx5</h2>
+<figure class="highlight sh"><figcaption><span>from archlinuxcn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-git fcitx5-gtk-git fcitx5-qt5-git fcitx5-qt4-git fcitx5-qt5-git fcitx5-qt6-git</span><br><span class="line">sudo pacman -S fcitx5-configtool-git fcitx5-chinese-addons-git fcitx5-material-color fcitx5-nord</span><br></pre></td></tr></table></figure>
+<h2 id="配置vim和neovim">配置vim和neovim</h2>
+<div class="note warning"><p>如果您是<code>Linux</code>初学者，或者不习惯使用<code>vim</code>或<code>neovim</code>，那下面这部分可以不去配置。下面的配置主要是配置<code>neovim</code>和<code>vim</code>安装一些工作中可以提高效率的插件，如果没有需要请省略此处配置。</p>
+</div>
+<div class="tabs" id="配置vim和neovim"><ul class="nav-tabs"><li class="tab active"><a href="#配置vim和neovim-1">Auto</a></li><li class="tab"><a href="#配置vim和neovim-2">vim</a></li><li class="tab"><a href="#配置vim和neovim-3">neovim</a></li></ul><div class="tab-content"><div class="tab-pane active" id="配置vim和neovim-1"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl -o vim-all.7z https://gitlab.com/fengzhenhua/zipconf/-/raw/main/vim-all.7z\?inline\=<span class="literal">false</span></span><br><span class="line">unar vim-all.7z</span><br><span class="line"><span class="built_in">cd</span> vim</span><br><span class="line"><span class="built_in">chmod</span> +x ./install.sh</span><br><span class="line">./install.sh</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">curl -o nvim-all.7z https://gitlab.com/fengzhenhua/zipconf/-/raw/main/nvim-all.7z\?inline\=<span class="literal">false</span></span><br><span class="line"><span class="built_in">cd</span> nvim</span><br><span class="line"><span class="built_in">chmod</span> +x ./install.sh</span><br><span class="line">./install.sh</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">rm</span> -rf vim-all.7z vim nvim-all.7z nvim</span><br></pre></td></tr></table></figure>
+<div class="note info">
+<p>
+在安装<code>neovim</code>时，由于<code>packer.nvim</code>不再维护，故更新为<code>lazy.nvim</code>插件管理器，安装完插件时要手动在<code>nvim</code>中执行<code>:qa</code>
+退出<code>nvim</code>。
+安装结束后最后一行命令删除<code>vim-all.7z</code>,
+<code>nvim-all.7z</code>, <code>vim</code>, <code>nvim</code>。
+</p>
+</div></div><div class="tab-pane" id="配置vim和neovim-2"><ol type="1">
+<li><p>安装必备依赖 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed --noconfirm ctags &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure></p></li>
+<li><p>导入初始配置 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o $HOME/.vimrc https://gitlab.com/fengzhenhua/fzhconfig/-/raw/main/vimrc_init\?inline\=false</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装插件管理器<code>vim-plug</code> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth 1 https://github.com/junegunn/vim-plug $HOME/.vim/vim-plug</span><br><span class="line">ln  -s $HOME/.vim/plugged/vim-plug/plug.vim  $HOME/.vim/autoload/plug.vim</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装<code>vim-plug</code>插件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim +PlugInstall +qall</span><br></pre></td></tr></table></figure></p></li>
+<li><p>导入完整配置 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm $HOME/.vimrc</span><br><span class="line">curl -o $HOME/.vimrc https://gitlab.com/fengzhenhua/fzhconfig/-/raw/main/vimrc\?inline\=false</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<div class="note warning">
+<p>
+注意：已经配置vim-plug 通过命令:PlugUpdate自动更新，请勿执行:PlugUpgrade
+!!
+</p>
+</div></div><div class="tab-pane" id="配置vim和neovim-3"><div class="note warning">
+<p>
+<code>packer</code>插件管理器已经于<label style="color:red">2023年8月份</label>停止维护，故本教程已经切换为<code>lazy</code>作为默认管理器，请放心<code>lazy</code>配置更加方便、稳定、快速。但是作为学习，此处仍然保留<code>packer</code>的配置方法,工作使用请参考<code>Auto</code>
+。
+</p>
+</div>
+<ol type="1">
+<li><p>安装依赖软件 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed --noconfirm neovim python3 yarn ranger</span><br><span class="line">sudo pacman -S --needed --noconfirm python-pip tree-sitter-cli python-pynvim</span><br><span class="line">sudo pacman -S --needed --noconfirm nerd-fonts-complete nerd-fonts-complete ttf-nerd-fonts-symbols</span><br><span class="line">sudo fc-cache -vf</span><br></pre></td></tr></table></figure></p></li>
+<li><p>下载<code>neovim</code>配置文件 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitlab.com/fengzhenhua/fzhconfig  fzhconfig</span><br><span class="line"><span class="built_in">cd</span> fzhconfig</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装插件管理器<code>packer</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NeoPacker=<span class="string">&quot;/home/<span class="variable">$USER</span>/.local/share/nvim/site/pack/packer/start/packer.nvim&quot;</span></span><br><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/wbthomason/packer.nvim   <span class="variable">$NeoPacker</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装配置文件 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -rf ./nvim /home/<span class="variable">$USER</span>/.config/nvim</span><br><span class="line"><span class="built_in">cp</span> ./init.vim /home/<span class="variable">$USER</span>/.config/nvim/init.vim</span><br><span class="line"><span class="built_in">cp</span> -rf ./vsnip /home/<span class="variable">$USER</span>/.vsnip</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装插件 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvim +PackerSync</span><br></pre></td></tr></table></figure>
+注意：插件安装完成后，请输入<code>:qa</code>
+退出<code>neovim</code></p></li>
+<li><p>安装完整配置 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span>  ./nvim/init.vim /home/<span class="variable">$USER</span>/.config/nvim/init.vim</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装<code>vim-latex</code>插件 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NeoTexPath=<span class="string">&quot;/home/<span class="variable">$USER</span>/.local/share/nvim/site/pack/packer/start/vim-latex/ftplugin/latex-suite/templates&quot;</span></span><br><span class="line"><span class="built_in">cp</span> ./latex-templates <span class="variable">$NeoTexPath</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>更改<code>vim-templates</code>插件的默认模板
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ./vim-templates/*   ~/.local/share/nvim/site/pack/packer/start/vim-template/templates/</span><br></pre></td></tr></table></figure></p></li>
+<li><p>解决 WARNING "Neovim::Ext" cpan module is not installed
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S --needed --noconfirm cpanminus</span><br><span class="line">sudo cpanm -n Neovim::Ext</span><br><span class="line">cpanm --local-lib=~/perl5 <span class="built_in">local</span>::lib &amp;&amp; <span class="built_in">eval</span> $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)</span><br></pre></td></tr></table></figure></p></li>
+</ol></div></div></div>
+<h2 id="neovim健康检查">Neovim健康检查</h2>
+<p>在安装<code>Neovim</code>后自检发现还有一些插件的依赖程序，没有安装，执行下述命令：</p>
+<figure class="highlight sh"><figcaption><span>fix neovim's checkhealth</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S wget cargo composer php luarocks ruby julia ripgrep fd</span><br><span class="line">sudo npm install -g neovim</span><br><span class="line">cpanm --local-lib=~/.perl5 <span class="built_in">local</span>::lib &amp;&amp; <span class="built_in">eval</span> $(perl -I ~/.perl5/lib/perl5/ -Mlocal::lib)</span><br></pre></td></tr></table></figure>
+<h2
+id="vim和neovim配置fcitx5自动切换">vim和neovim配置fcitx5自动切换</h2>
+<p>当使用<code>vim</code>或<code>nvim</code>时，经学在插入模式和命令模式切换，而在命令模式需要英文输入法，特别是编辑中文文件时，每次切换都需要切换输入法特别麻烦。于是根据网络上的方法我修改得到一个更好的方法，同时原理相同在<code>archlinux</code>官网上给出了更加简洁的写法，此处都列出来，供大家自由选择。</p>
+<h3 id="fcitx5-archwiki">Fcitx5-ArchWiki</h3>
+<p>If you are using <code>Vim9</code>, then the code should be</p>
+<figure class="highlight vim"><figcaption><span>~/.vimrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Only taking affect after using vim9script grammar <span class="built_in">or</span> <span class="built_in">has</span> `vim9script` keyword.</span><br><span class="line">var fcitx5state = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line"><span class="keyword">autocmd</span> InsertLeave * :<span class="keyword">silent</span> fcitx5state = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)[<span class="number">0</span>] | <span class="keyword">silent</span> !fcitx5-remote -<span class="keyword">c</span></span><br><span class="line"><span class="keyword">autocmd</span> InsertEnter * :<span class="keyword">silent</span> <span class="keyword">if</span> fcitx5state == <span class="string">&#x27;2&#x27;</span> | <span class="keyword">call</span> <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -o&quot;</span>) | <span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>If you are using <code>neovim</code>, then append the above code to
+<code>~/.config/nvim/init.vim</code>.</p>
+<details>
+<summary>
+<label style="color:blue">版本低于Vim9及VSCodeVim</label>
+</summary>
+<p>It is recommended to use the <a
+target="_blank" rel="noopener" href="https://github.com/lilydjwg/fcitx.vim">fcitx.vim</a> plugin. This
+plugin will keep different buffer-specific input method states in their
+respective insert modes.</p>
+<p>For a simple solution, you can append the code to
+<code>~/.vimrc</code>:</p>
+<figure class="highlight vim"><figcaption><span>~/.vimrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line"><span class="keyword">autocmd</span> InsertLeave * :<span class="keyword">silent</span> <span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)[<span class="number">0</span>] | <span class="keyword">silent</span> !fcitx5-remote -<span class="keyword">c</span> </span><br><span class="line"><span class="keyword">autocmd</span> InsertEnter * :<span class="keyword">silent</span> <span class="keyword">if</span> fcitx5state == <span class="number">2</span> | <span class="keyword">call</span> <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -o&quot;</span>) | <span class="keyword">endif</span> </span><br></pre></td></tr></table></figure>
+<p>If you are using VSCodeVim, add the following snippet into your
+configuration file:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;vim.autoSwitchInputMethod.enable&quot;</span>: true,</span><br><span class="line"><span class="string">&quot;vim.autoSwitchInputMethod.defaultIM&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line"><span class="string">&quot;vim.autoSwitchInputMethod.obtainIMCmd&quot;</span>: <span class="string">&quot;/usr/bin/fcitx5-remote&quot;</span>,</span><br><span class="line"><span class="string">&quot;vim.autoSwitchInputMethod.switchIMCmd&quot;</span>: <span class="string">&quot;/usr/bin/fcitx5-remote -t &#123;im&#125;&quot;</span>,</span><br></pre></td></tr></table></figure>
+</details>
+<h3 id="我之前使用的方案">我之前使用的方案</h3>
+<figure class="highlight vim"><figcaption><span>~/.vimrc or ~/.config/nvim/init.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">g:input_toggle</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">function!</span> <span class="title">Fcitx2en</span><span class="params">()</span></span><br><span class="line">   <span class="keyword">let</span> <span class="variable">s:input_status</span> = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line">   <span class="keyword">if</span> <span class="variable">s:input_status</span> == <span class="number">2</span></span><br><span class="line">      <span class="keyword">let</span> <span class="variable">g:input_toggle</span> = <span class="number">1</span></span><br><span class="line">      <span class="keyword">let</span> <span class="variable">l:a</span> = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -c&quot;</span>)</span><br><span class="line">   <span class="keyword">endif</span></span><br><span class="line"><span class="keyword">endfunction</span></span><br><span class="line"><span class="keyword">function!</span> <span class="title">Fcitx2zh</span><span class="params">()</span></span><br><span class="line">   <span class="keyword">let</span> <span class="variable">s:input_status</span> = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line">   <span class="keyword">if</span> <span class="variable">s:input_status</span> != <span class="number">2</span> &amp;&amp; <span class="variable">g:input_toggle</span> == <span class="number">1</span></span><br><span class="line">      <span class="keyword">let</span> <span class="variable">l:a</span> = <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -o&quot;</span>)</span><br><span class="line">      <span class="keyword">let</span> <span class="variable">g:input_toggle</span> = <span class="number">0</span></span><br><span class="line">   <span class="keyword">endif</span></span><br><span class="line"><span class="keyword">endfunction</span></span><br><span class="line"><span class="keyword">set</span> ttimeoutlen=<span class="number">150</span></span><br><span class="line"><span class="comment">&quot;退出插入模式</span></span><br><span class="line"><span class="keyword">autocmd</span> InsertLeave * <span class="keyword">call</span> Fcitx2en()</span><br><span class="line"><span class="comment">&quot;进入插入模式</span></span><br><span class="line"><span class="keyword">autocmd</span> InsertEnter * <span class="keyword">call</span> Fcitx2zh()</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意：由于<code>Fcitx5-ArchWiki</code>给出的方法更加简法，所以建议使用<code>Fcitx5-ArchWiki</code>方法，而此处方法是本人多年前努力改进的办法，所以放在此处作为学习之前。</p>
+</div>
+<h2 id="必备工具一键安装">必备工具一键安装</h2>
+<figure class="highlight sh"><figcaption><span>archlinuxcn源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman --needed --noconfirm -S  guake thunderbird  thunderbird-i18n-zh-cn libreoffice-fresh libreoffice-fresh-zh-cn calibre zotero goldendict-ng-git python-requests mplayer speech-dispatcher</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>上述工具依次为：下拉式终端、邮件客户端、办公套装libreoffice、
+电子图书库、文献管理、电子词典、视频播放、语音合成(firefox依赖)</p>
+</div>
+<figure class="highlight sh"><figcaption><span>aur源</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview --noconfirm -S xdman-beta-bin wemeet-bin linuxqq listen1-desktop-appimage  aliyunpan-gaozhangmin-bin</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>上述工具依次为：下载工具、腾讯会议、腾讯QQ、音乐播放器、小白羊阿云盘</p>
+</div>
+<h2 id="安装配置texlive">安装配置TexLive</h2>
+<p>由于<code>TexLive</code>每年都会有新的版本，可以下载带年份的也可以下载不带年份的ISO镜像。</p>
+<ol type="1">
+<li>下载安装镜像<code>Texlive.iso</code>：
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://mirror.ctan.org/systems/texlive/Images/">最近CTAN(自动检测)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">清华大学镜像源</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/">中国科学技术大学镜像源</a></li>
+</ul></li>
+<li>挂载ISO镜像</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop texlive2021.iso  /mnt/</span><br><span class="line">cd /mnt</span><br><span class="line">sudo ./install-tl	</span><br></pre></td></tr></table></figure>
+<p>出现选项后，输入 I 直接安装（也可以更改选项）。不出意外的话，5
+分钟应该就 OK 了， 然后退出 root 用户。</p>
+<ol start="3" type="1">
+<li>设置环境变量</li>
+</ol>
+<p>如果在安装过程中选择了建立超链接，则不必考虑环境变量，所以<label style="color:red">在安装时要建立超链接</label>，这样子可方便一些。texlive-en.pdf
+中说明：</p>
+<div class="note warning"><p>If you elected to create symlinks in standard directories (described
+in section 3.2.4), then there is no need to edit environment variables.
+Otherwise, on Unix systems, the directory of the binaries for your
+platform must be added to the search path. (On Windows, the installer
+takes care of this.)</p>
+</div>
+<ol start="4" type="1">
+<li>卸载ISO镜像并更新texlive</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/</span><br><span class="line">sudo tlmgr update --self</span><br><span class="line">sudo tlmgr update --all</span><br></pre></td></tr></table></figure>
+<ul>
+<li>默认情况下，会自动搜索合适的镜像来更新，也可以使用<code>–repository</code>
+选项指定了要使用哪一个<code>CTAN</code>镜像。例如使用<code>USTC</code>镜像：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr update --self --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</span><br><span class="line">sudo tlmgr update --all  --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为了方便我们也可以直接设置<code>texlive</code>
+源为国内源，例如切换为清华源或华中科技大学源</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet</span><br><span class="line">sudo tlmgr repository set    http://mirror.hust.edu.cn/CTAN/systems/texlive/tlnet</span><br></pre></td></tr></table></figure>
+<ol start="5" type="1">
+<li>字体设置</li>
+</ol>
+<p>XeTeX和LuaTeX可以直接使用系统字体,
+但Texlive自带的字体不在系统的字体目录中,所以当使用XeLaTeX
+编译文件时,如果使用了texlive里面带的字体,就会出错,这时需要进行如下配置,让系统可以识别texlive所带的字体就可以了.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /usr/local/texlive/2021/texmf-var/fonts/conf/texlive-fontconfig.conf   /etc/fonts/conf.d/09-texlive.conf</span><br><span class="line">sudo fc-cache -fsv</span><br></pre></td></tr></table></figure>
+<h2 id="问题修复">问题修复</h2>
+<h3
+id="文件管理器dolphin挂载双系统的windows11-ntfs分区失败">文件管理器Dolphin挂载双系统的Windows11
+NTFS分区失败</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman --needed --noconfirm -S ntfs-3g</span><br><span class="line">sudo ntfsfix -d /dev/nvme0n1p6</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意：此命令是删除了之前系统挂载NTFS硬盘时，产生的多余错误标签,
+并不会格式硬盘，不会造成资料损失，放心使用。如果您并没有遇到<code>Dolphin</code>无法挂载<code>NTFS</code>分区的情况，请忽视此问题修复。</p>
+</div>
+<h3 id="grub丢失导致系统无法启动">Grub丢失导致系统无法启动</h3>
+<p>2023年12月29日,
+由于设置BIOS时，点了<code>F9</code>,导致BIOS恢复了默认设置。启动项中的<code>Grub</code>丢失，系统无法启动。解决方法为：插入安装系统时的启动<code>U</code>盘，然后按前述安装过程依次挂载各硬盘到指定目录(<label style="color:red">特别注意！不要格式化，因为系统其他部分还是完好的！！</label>)，
+由于<code>ArchLinux Live</code>默认没有安装<code>os-prober</code>,
+而此程序的作用就是自动探测操作系统，于是执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p2  /mnt/</span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot/efi</span><br><span class="line">mount /dev/nvme0n1p4 /mnt/home</span><br><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S os-prober</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id= ArchLinux</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line"><span class="built_in">exit</span> </span><br><span class="line">reboot -h now</span><br></pre></td></tr></table></figure>
+<hr />
+<center>
+<i class="fa fa-angle-double-down" style="font-size:48px;color:red"></i><font color="green" size="8" >其他替代品或分别安装命令</font>
+</center>
+<hr />
+<h2 id="安装截图工具">安装截图工具</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S flameshot</span><br></pre></td></tr></table></figure>
+<h2 id="安装图像查看器">安装图像查看器</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S nomacs</span><br><span class="line">or </span><br><span class="line">sudo pacman -S feh imagemagick</span><br><span class="line">or  </span><br><span class="line">sudo pacman -S xnviewmp</span><br></pre></td></tr></table></figure>
+<h2 id="安装浏览器firefox">安装浏览器<code>firefox</code></h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>注意：2023年12月24日发现，<code>cn</code>源内去除了<code>tor-browser</code>,
+所以不能使用<code>pacman</code>安装了,
+如果执行<code>sudo pacman -S torbrowser</code>
+将会出现一个<code>torbrowser</code>的安装器，它不是浏览器本身。</p>
+</div>
+<details>
+<summary>
+<label style="color:blue">关于Firefox的问题汇总</label>
+</summary>
+<ol type="1">
+<li>播放多媒体时不出声音了</li>
+</ol>
+<p>2022-06-14 在使用<code>firefox</code> 版本号为
+V101.0.1(64位)收看视频时，发现都默认禁用了声音自动播放，这里给出设置方法。
+2023-12-12 <code>firefox</code> 版本号 V120.0.1(64位)
+再次遇到这个问题。</p>
+<div class="note success"><p>点击右上角<code>三个横杠</code> →点击左侧<code>隐私与安全</code> →
+点击右侧<code>权限</code> → 向下<code>自动播放</code> →
+向右<code>设置...</code> →
+最上面<code>所有网站的默认值</code>设置为`音频和视频。</p>
+</div>
+<ol start="2" type="1">
+<li>安装 firefox-ublock 插件</li>
+</ol>
+<div class="tabs" id="installublock"><ul class="nav-tabs"><li class="tab active"><a href="#installublock-1">aur源安装</a></li><li class="tab"><a href="#installublock-2">手动安装</a></li></ul><div class="tab-content"><div class="tab-pane active" id="installublock-1"><p>2022-10-07
+在新安装的Archlinux上安装此插件时，由于网络原因不能正常访问<code>uBlock</code>的发布网站，但是在<code>Archlinux</code>下可以使用<code>yay</code>
+或 <code>paru</code> 安装，安装到<code>firefox</code>的命令如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S firefox-ublock-origin</span><br><span class="line">or </span><br><span class="line">yay -S  firefox-ublock-origin</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="installublock-2"><p>不知道从何时开始，火狐Firefox禁止中国大陆IP访问商店内的广告拦截扩展页面。当打开uBlockOrigin
+, AdGuard,AdBlocker 等页面时，会显示“此页面在您的地区不可用”
+。所以本节记录手动安装<code>uBlock</code>的方法。</p>
+<ol type="1">
+<li>打开<code>uBlock</code>发布页<a
+target="_blank" rel="noopener" href="https://github.com/gorhill/uBlock/releases">https://github.com/gorhill/uBlock/releases</a></li>
+<li>点击发页页上对应Firefox的发布链接，等待安装即可。</li>
+</ol></div></div></div>
+</details>
+<h2 id="安装下载软件xtreme-download-manager">安装下载软件Xtreme Download
+Manager</h2>
+<p>Xtreme下载管理器是一款强大的工具，能提高下载速度达500%，保存流媒体视频，恢复中断下载，并安排和转换下载。XDM与Chrome、Firefox
+Quantum、Opera、Vivaldi等基于Chromium和Firefox的浏览器无缝集成，接管下载并保存网络流媒体视频。内置的视频转换器可将下载的视频转换为多种格式，支持100多种设备。</p>
+<div class="tabs" id="xdman"><ul class="nav-tabs"><li class="tab active"><a href="#xdman-1">aur源安装</a></li><li class="tab"><a href="#xdman-2">手动安装</a></li></ul><div class="tab-content"><div class="tab-pane active" id="xdman-1"><figure class="highlight sh"><figcaption><span>Install Xtreme Download Manager</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview --noconfirm -S xdman-beta-bin</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="xdman-2"><p><a
+target="_blank" rel="noopener" href="https://xtremedownloadmanager.com/#downloads">xdm官网</a>,点开链接→解压缩→切换到解压后的文件夹
+<code>xdm-setup-7.2.11</code>→执行脚本安装程序.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ./xdm-setup-7.2.11</span><br><span class="line">chmod +x install.sh</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure></div></div></div>
+<h2 id="安装词典软件goldendict">安装词典软件Goldendict</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S goldendict-ng-git mplayer</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置词典：打开软件<code>goldendict</code>→点击<code>编辑</code>→<code>词典</code>
+→设置词典软件路径。</li>
+<li>配置构词法规则：点击<code>构词法规则</code>→设置好构词法路径。</li>
+<li>关闭全文搜索：点击<code>编辑</code>→ <code>首选项</code>
+→<code>全文搜索</code> 关闭全文搜索。</li>
+<li>配置播放声音：切换到<code>音频</code> → <code>播放</code>
+→<code>使用外部程序播放:mplayer</code> 。</li>
+</ul>
+<details>
+<summary>
+<label style="color:blue">Goldendict添加文本翻译</label>
+</summary>
+<figure class="highlight python"><figcaption><span>translatorGD.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> md5</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line">caiyunxiaoyiKey=<span class="string">&quot;&quot;</span></span><br><span class="line">baiduKey=&#123;<span class="string">&quot;id&quot;</span>:<span class="string">&quot;YourID&quot;</span>,<span class="string">&quot;secret&quot;</span>:<span class="string">&quot;YourSecret&quot;</span>&#125;</span><br><span class="line">xiaoniuKey=<span class="string">&quot;YourKey&quot;</span></span><br><span class="line">sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">originalText = sys.argv[<span class="number">1</span>]</span><br><span class="line">css = <span class="string">&quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;</span></span><br><span class="line"><span class="string">.engine &#123;</span></span><br><span class="line"><span class="string">  font-family: &quot;MiSansVF&quot;;</span></span><br><span class="line"><span class="string">  font-size: 18px;</span></span><br><span class="line"><span class="string">  color: #578bc5;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.originalText &#123;</span></span><br><span class="line"><span class="string">    font-size: 120%;</span></span><br><span class="line"><span class="string">    font-family: &quot;MiSansVF&quot;;</span></span><br><span class="line"><span class="string">    font-weight: 600;</span></span><br><span class="line"><span class="string">    display: inline-block;</span></span><br><span class="line"><span class="string">    margin: 0rem 0rem 0rem 0rem;</span></span><br><span class="line"><span class="string">    color: #2a5598;</span></span><br><span class="line"><span class="string">    margin-bottom: 0.6rem;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.frame &#123;</span></span><br><span class="line"><span class="string">    margin: 1rem 0.5rem 0.5rem 0;</span></span><br><span class="line"><span class="string">    padding: 0.7rem 0.5rem 0.5rem 0;</span></span><br><span class="line"><span class="string">    border-top: 3px dashed #eaeef6;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">definition &#123;</span></span><br><span class="line"><span class="string">    font-family: &quot;MiSansVF&quot;;</span></span><br><span class="line"><span class="string">    color: #2a5598;</span></span><br><span class="line"><span class="string">    height: 120px;</span></span><br><span class="line"><span class="string">    padding: 0.05em;</span></span><br><span class="line"><span class="string">    font-weight: 500;</span></span><br><span class="line"><span class="string">    font-size: 16px;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(css)</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&#x27;&lt;div class=&quot;originalText&quot;&gt;&#x27;</span> + originalText + <span class="string">&#x27;&lt;/div&gt;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&lt;br&gt;&lt;br&gt;&#x27;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">output</span>(<span class="params">engineName:<span class="built_in">str</span>,definition:<span class="built_in">str</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&lt;span class=&quot;engine&quot;&gt;&#x27;</span> + engineName + <span class="string">&quot;&lt;/span&gt;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&lt;div class=&quot;frame&quot;&gt;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&lt;definition&gt;&#x27;</span> + definition + <span class="string">&#x27;&lt;/definition&gt;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&lt;/div&gt;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&lt;br&gt;&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Youdao</span>():</span><br><span class="line">    <span class="keyword">global</span> originalText</span><br><span class="line">    headers = &#123;</span><br><span class="line">            <span class="string">&#x27;authority&#x27;</span>: <span class="string">&#x27;aidemo.youdao.com&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;accept&#x27;</span>: <span class="string">&#x27;application/json, text/javascript, */*; q=0.01&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;accept-language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded; charset=UTF-8&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;origin&#x27;</span>: <span class="string">&#x27;https://ai.youdao.com&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;referer&#x27;</span>: <span class="string">&#x27;https://ai.youdao.com/&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-ch-ua&#x27;</span>: \</span><br><span class="line">                    <span class="string">&#x27;&quot;Chromium&quot;;v=&quot;106&quot;,\</span></span><br><span class="line"><span class="string">                    &quot;Microsoft Edge&quot;;v=&quot;106&quot;,\</span></span><br><span class="line"><span class="string">                    &quot;Not;A=Brand&quot;;v=&quot;99&quot;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-ch-ua-mobile&#x27;</span>: <span class="string">&#x27;?0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-ch-ua-platform&#x27;</span>: <span class="string">&#x27;&quot;Windows&quot;&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-fetch-dest&#x27;</span>: <span class="string">&#x27;empty&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-fetch-mode&#x27;</span>: <span class="string">&#x27;cors&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;sec-fetch-site&#x27;</span>: <span class="string">&#x27;same-site&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user-agent&#x27;</span>: \</span><br><span class="line">                    <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span></span><br><span class="line"><span class="string">                    AppleWebKit/537.36 (KHTML, like Gecko)\</span></span><br><span class="line"><span class="string">                    Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.47&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    data = &#123;</span><br><span class="line">            <span class="string">&#x27;q&#x27;</span>: originalText,</span><br><span class="line">            <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;Auto&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;Auto&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        output(<span class="string">&quot;有道翻译&quot;</span>,</span><br><span class="line">               requests.post(<span class="string">&#x27;https://aidemo.youdao.com/trans&#x27;</span>,</span><br><span class="line">                             headers=headers, data=data).json()[<span class="string">&quot;translation&quot;</span>][<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        output(<span class="string">&quot;有道翻译&quot;</span>,<span class="string">&quot;错误&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Google</span>():</span><br><span class="line">    <span class="keyword">global</span> originalText</span><br><span class="line">    definition=<span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> requests.get(<span class="string">&quot;https://translate.googleapis.com/translate_a/single?\</span></span><br><span class="line"><span class="string">                client=gtx&amp;sl=auto&amp;tl=&amp;dt=at&amp;dt=bd&amp;dt=ex&amp;dt=ld&amp;dt=md&amp;dt=qca&amp;dt=rw&amp;\</span></span><br><span class="line"><span class="string">                dt=rm&amp;dt=ss&amp;dt=t&amp;q=&quot;</span>+originalText,\</span><br><span class="line">                headers=&#123;<span class="string">&quot;user-agent&quot;</span>:\</span><br><span class="line">                <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0;\</span></span><br><span class="line"><span class="string">                Win64; x64; rv:59.0)&quot;</span>&#125;).json()[<span class="number">0</span>]:</span><br><span class="line">            <span class="keyword">if</span> x[<span class="number">0</span>]:</span><br><span class="line">                definition += x[<span class="number">0</span>]</span><br><span class="line">        output(<span class="string">&quot;谷歌翻译&quot;</span>,definition)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        output(<span class="string">&quot;谷歌翻译&quot;</span>,<span class="string">&quot;错误&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Caiyun</span>():</span><br><span class="line">    <span class="keyword">global</span> originalText</span><br><span class="line">    <span class="keyword">global</span> caiyunxiaoyiKey</span><br><span class="line">    payload = &#123;</span><br><span class="line">        <span class="string">&quot;source&quot;</span>: originalText,</span><br><span class="line">        <span class="string">&quot;trans_type&quot;</span>: <span class="string">&quot;auto2zh&quot;</span>,</span><br><span class="line">        <span class="string">&quot;request_id&quot;</span>: <span class="string">&quot;demo&quot;</span>,</span><br><span class="line">        <span class="string">&quot;detect&quot;</span>: <span class="literal">True</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&quot;content-type&quot;</span>: <span class="string">&quot;application/json&quot;</span>,</span><br><span class="line">        <span class="string">&quot;x-authorization&quot;</span>: <span class="string">&quot;token &quot;</span> + caiyunxiaoyiKey,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        output(<span class="string">&quot;彩云小译&quot;</span>,</span><br><span class="line">               json.loads(requests.post(</span><br><span class="line">                   <span class="string">&quot;http://api.interpreter.caiyunai.com/v1/translator&quot;</span>,</span><br><span class="line">                   data=json.dumps(payload), headers=headers).text)[<span class="string">&quot;target&quot;</span>])</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        output(<span class="string">&quot;彩云小译&quot;</span>,<span class="string">&quot;错误:&quot;</span>+<span class="built_in">str</span>(e))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Baidu</span>():</span><br><span class="line">    <span class="keyword">global</span> originalText</span><br><span class="line">    <span class="keyword">global</span> baiduKey</span><br><span class="line">    salt = random.randint(<span class="number">32768</span>, <span class="number">65536</span>)</span><br><span class="line">    s=baiduKey[<span class="string">&quot;id&quot;</span>] + originalText + <span class="built_in">str</span>(salt) + baiduKey[<span class="string">&quot;secret&quot;</span>]</span><br><span class="line">    sign = md5(s.encode(<span class="string">&#x27;utf-8&#x27;</span>)).hexdigest()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        output(<span class="string">&quot;百度翻译&quot;</span>,</span><br><span class="line">               requests.post(</span><br><span class="line">                   <span class="string">&#x27;http://api.fanyi.baidu.com/api/trans/vip/translate&#x27;</span>,</span><br><span class="line">                   params=&#123;<span class="string">&#x27;appid&#x27;</span>: baiduKey[<span class="string">&quot;id&quot;</span>],</span><br><span class="line">                           <span class="string">&#x27;q&#x27;</span>: originalText, <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;auto&#x27;</span>, <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;zh&#x27;</span>,</span><br><span class="line">                           <span class="string">&#x27;salt&#x27;</span>: salt, <span class="string">&#x27;sign&#x27;</span>: sign&#125;</span><br><span class="line">                   ).json()[<span class="string">&quot;trans_result&quot;</span>][<span class="number">0</span>][<span class="string">&quot;dst&quot;</span>])</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        output(<span class="string">&quot;百度翻译&quot;</span>,<span class="string">&quot;错误&quot;</span>+<span class="built_in">str</span>(e))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Xiaoniu</span>():</span><br><span class="line">    <span class="keyword">global</span> originalText</span><br><span class="line">    <span class="keyword">global</span> xiaoniuKey</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        output(<span class="string">&quot;小牛翻译&quot;</span>,</span><br><span class="line">               json.loads(requests.post(</span><br><span class="line">                   <span class="string">&quot;http://api.niutrans.com/NiuTransServer/translation?&quot;</span>,</span><br><span class="line">                   data=&#123;<span class="string">&quot;from&quot;</span>: <span class="string">&#x27;en&#x27;</span>, <span class="string">&quot;to&quot;</span>: <span class="string">&#x27;zh&#x27;</span>,\</span><br><span class="line">                           <span class="string">&quot;apikey&quot;</span>: xiaoniuKey,\</span><br><span class="line">                           <span class="string">&quot;src_text&quot;</span>: originalText&#125;).text)[<span class="string">&#x27;tgt_text&#x27;</span>])</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        output(<span class="string">&quot;小牛翻译&quot;</span>,<span class="string">&quot;错误&quot;</span>+<span class="built_in">str</span>(e))</span><br><span class="line">threads=[]</span><br><span class="line"><span class="comment"># threads.append(threading.Thread(target=Caiyun))</span></span><br><span class="line"><span class="comment"># threads.append(threading.Thread(target=Google))</span></span><br><span class="line">threads.append(threading.Thread(target=Xiaoniu))</span><br><span class="line">threads.append(threading.Thread(target=Baidu))</span><br><span class="line">threads.append(threading.Thread(target=Youdao))</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> threads:</span><br><span class="line">    t.start()</span><br></pre></td></tr></table></figure>
+<p><strong>translatorGD脚本配置方法</strong></p>
+<ul>
+<li><p>在使用脚本前，请输入申请到的百度帐号和密钥，小牛的密钥</p></li>
+<li><p>Linux中配置 <figure class="highlight sh"><figcaption><span>命令行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="string">&quot;/home/feng/软件/goldendict/translatorGD.py&quot;</span> %GDWORD%</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Windows配置 <img src="/Picture/pygoldendict.png"
+title="Python文本翻译" alt="translatorGD配置方法" /></p></li>
+</ul>
+</details>
+<h2 id="安装腾讯会议和qq">安装腾讯会议和QQ</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S wemeet-bin linuxqq</span><br></pre></td></tr></table></figure>
+<h2 id="安装音乐播放器">安装音乐播放器</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S listen1-desktop-appimage</span><br></pre></td></tr></table></figure>
+<h2 id="安装小白羊云盘">安装小白羊云盘</h2>
+<figure class="highlight sh"><figcaption><span>完美运行版本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S aliyunpan-gaozhangmin-bin</span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意：<code>aur</code>中有两个版本的小白羊云盘，分别是<code>xbydriver-bin</code>和<code>aliyunpan-gaozhangmin-bin</code>，前者更新快一些，但是会导致一些错误，同时基本的下载也不能保证，后者更新慢一些，估计应该是作者在修复问题，这一版可以完美运行，所以此处推荐安装后者。</p>
+</div>
+<h2 id="参考文章">参考文章</h2>
+<details>
+<summary>
+<label style="color:blue">参考文章</label>
+</summary>
+<ol type="1">
+<li>安装教程参考</li>
+</ol>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/zh-cn/安装指南">安装指南-ArchLinux
+中文维基</a></li>
+<li><a target="_blank" rel="noopener" href="https://arch-linux.osrc.com/">archlinux简明指南</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37367301/article/details/120343495">全网最简洁ArchLinux安装教程</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/55dc4eab7014">无线网络（WiFi）下安装
+ArchLinux + KDE 全过程教程（UEFI）</a></li>
+</ul>
+<ol start="2" type="1">
+<li>Pacman 使用手册</li>
+</ol>
+<ul>
+<li><a href="/2023/12/10/Pacman常用命令">Pacman常用命令</a></li>
+</ul>
+<ol start="3" type="1">
+<li>配置国内源参考</li>
+</ol>
+<ul>
+<li>最初配置: <a
+target="_blank" rel="noopener" href="https://fengzhenhua.gitlab.io/2023/05/01/">ArchLinuxCN软件仓库</a></li>
+<li>标准配置: <a
+target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">Arch
+Linux 中文社区仓库</a></li>
+</ul>
+<ol start="4" type="1">
+<li>配置电源管理参考</li>
+</ol>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://linrunner.de/tlp/installation/arch.html#thinkpads-only">Arch
+Linux-TLP1.6documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://bbs.deepin.org/post/264669">TLP
+电源管理简述</a></li>
+</ul>
+<ol start="5" type="1">
+<li>配置<code>nvim</code>参考</li>
+</ol>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://gitee.com/houdunwang/nvim">向军的Neovim配置</a></li>
+</ul>
+<ol start="6" type="1">
+<li>配置<code>Goldendict</code>参考</li>
+</ol>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://fengzhenhua.gitlab.io/2023/11/16/Goldendict添加文本翻译">Goldendict添加文本翻译</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://fengzhenhua.gitlab.io/2023/12/02/Windows下配置Goldendict">Windows下配置Goldendict</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://fengzhenhua.gitlab/io/2023/11/13/申请百度翻译Key">申请百度翻译Key</a></li>
+<li><a href="/2023/05/08/Goldendict手册">Goldendict手册</a></li>
+</ul>
+</details>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/30/%E5%B8%B8%E7%94%A8VBA%E4%BB%A3%E7%A0%81/" rel="prev" title="常用VBA代码">
+                  <i class="fa fa-angle-left"></i> 常用VBA代码
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/15/2022%E5%B9%B4%E6%98%9F%E5%BA%A7/" rel="next" title="2022年星座">
+                  2022年星座 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fengzhenhua-vip" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
